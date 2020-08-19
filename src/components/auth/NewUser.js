@@ -63,7 +63,7 @@ const NewUser = () => {
                     </div>
                     
                     <div className="field-form">
-                        <label htmlFor="confirmUser">Password:</label>
+                        <label htmlFor="confirmUser">Repeat password:</label>
                         <input type="password" 
                             id="confirmUser" 
                             name="confirmUser"
