@@ -21,13 +21,13 @@ const Login = () => {
     const {email, password} = userInformation;
     
     return (
-        <div className="form-usuario">
-            <div className="contenedor-form sombra-dark">
+        <div className="form-user">
+            <div className="container-form shadow-dark">
                 <h1>User Login</h1>
                 <form
                     onSubmit={onSubmit}
                 >
-                    <div className="campo-form">
+                    <div className="field-form">
                         <label htmlFor="email">Email:</label>
                         <input type="email" 
                             id="email" 
@@ -38,7 +38,7 @@ const Login = () => {
                         </input>
                     </div>
                     
-                    <div className="campo-form">
+                    <div className="field-form">
                         <label htmlFor="password">Password:</label>
                         <input type="password" 
                             id="password" 
@@ -49,11 +49,11 @@ const Login = () => {
                         </input>
                     </div>
 
-                    <div className="campo-form">
-                        <input type="submit" className="btn btn-primario btn-block" value="Start session"></input>
+                    <div className="field-form">
+                        <input type="submit" className="btn btn-primary btn-block" value="Start session"></input>
                     </div>
                 </form>
-                <Link to={"/newuser"} className="enlace-cuenta">Get new account</Link>
+                <Link to={"/newuser"} className="link-account">Get new account</Link>
             </div>
         </div>
     );

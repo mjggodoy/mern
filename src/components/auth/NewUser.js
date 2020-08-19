@@ -23,13 +23,13 @@ const NewUser = () => {
     const {userName, email, password, confirmUser} = userInformation;
     
     return (
-        <div className="form-usuario">
-            <div className="contenedor-form sombra-dark">
+        <div className="form-user">
+            <div className="container-form shadow-dark">
                 <h1>Get a new account</h1>
                 <form
                     onSubmit={onSubmit}
                 >
-                    <div className="campo-form">
+                    <div className="field-form">
                         <label htmlFor="userName">Name:</label>
                         <input type="text" 
                             id="userName" 
@@ -40,7 +40,7 @@ const NewUser = () => {
                         </input>
                     </div>
 
-                     <div className="campo-form">
+                     <div className="field-form">
                         <label htmlFor="email">Email:</label>
                         <input type="email" 
                             id="email" 
@@ -51,7 +51,7 @@ const NewUser = () => {
                         </input>
                     </div>
                     
-                    <div className="campo-form">
+                    <div className="field-form">
                         <label htmlFor="password">Password:</label>
                         <input type="password" 
                             id="password" 
@@ -62,7 +62,7 @@ const NewUser = () => {
                         </input>
                     </div>
                     
-                    <div className="campo-form">
+                    <div className="field-form">
                         <label htmlFor="confirmUser">Password:</label>
                         <input type="password" 
                             id="confirmUser" 
@@ -73,11 +73,11 @@ const NewUser = () => {
                         </input>
                     </div>
 
-                    <div className="campo-form">
-                        <input type="submit" className="btn btn-primario btn-block" value="Register me!"></input>
+                    <div className="field-form">
+                        <input type="submit" className="btn btn-primary btn-block" value="Register me!"></input>
                     </div>
                 </form>
-                <Link to={"/"} className="enlace-cuenta">Start session again!</Link>
+                <Link to={"/"} className="link-account">Start session again!</Link>
             </div>
         </div>
     );
