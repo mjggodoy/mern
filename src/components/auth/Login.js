@@ -16,7 +16,6 @@ const Login = () => {
     
     const onSubmit = e => {
         e.preventDefault();
-
     }
 
     const {email, password} = userInformation;
