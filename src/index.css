@@ -110,15 +110,15 @@ aside  {
   padding: 3rem;
 }
 
-.formulario-nuevo-proyecto {
+.form-new-project {
   margin-top: 6rem;
 }
-.formulario-nuevo-proyecto .input-text {
+.form-new-project .input-text {
   border-bottom: 1px solid var(--gris2);
   border-radius: 0;
   background-color: var(--gris1);
 }
-.formulario-nuevo-proyecto .input-text::placeholder{
+.form-new-project .input-text::placeholder {
   color: var(--gris2);
 }
 .projects {
