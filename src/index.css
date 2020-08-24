@@ -82,7 +82,6 @@ a {
   background-color: var(--gris2);
 }
 .btn-blank {
-  margin: 0;
   padding: 0;
   display: block;
   background-color: transparent;
@@ -124,10 +123,10 @@ aside  {
 .projects {
   margin-top: 10rem;
 }
-.listado-proyectos li {
+.project-list li {
   margin-bottom: 2rem;
 }
-.listado-proyectos li a {
+.project-list li a {
   font-size: 1.4rem;
   color: var(--gris2);
   line-height: 1.5;
