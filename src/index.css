@@ -155,18 +155,18 @@ aside  {
 }
 
 /** Formulario crear y editar tareas **/
-.formulario {
+.form {
   background-color: var(--gris3);
   padding: 4rem;
 }
-.formulario form {
+.form form {
   max-width: 600px;
   margin: 0 auto;
 }
-.contenedor-input {
+.container-input {
   display: flex;
 }
-.contenedor-input label {
+.container-input label {
   margin-bottom: 1rem;
   color: var(--blanco);
 }
@@ -182,8 +182,6 @@ aside  {
 .contenedor-tareas {
   padding: 4rem;
 }
-
-
 
 .listado-tareas {
   max-width: 600px;
