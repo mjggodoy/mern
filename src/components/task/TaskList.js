@@ -16,7 +16,9 @@ const TaskList = () => {
                 tasks.map(task => {
                     return (<Task task = {task}/>
                 )})}
+                 
             </ul>
+            <button type="button" className="btn btn-delete">Delete project &times;</button> 
         </Fragment>
     );
 }

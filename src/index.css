@@ -17,7 +17,7 @@ html {
 }
 body {
   min-height: 100%;
-  background-color: var(--gris1);
+  background-color: #b7c1ca;
   font-size: 16px; 
   font-size: 1.6rem;
   font-family: var(--textFont);
@@ -70,6 +70,10 @@ a {
 }
 .btn-secundario {
   background-color: var(--gris1);
+}
+.btn-delete {
+  background-color: var(--blanco);
+  margin: 30px;
 }
 .btn-block {
   display: block;
@@ -208,7 +212,7 @@ aside  {
   padding-right: 2rem;
 }
 .task .btn {
-  padding: .8rem;
+  padding: .7rem;
   font-size:1.4rem;
   border-radius: 0;
   margin: 0;
@@ -335,7 +339,6 @@ el css no esta completo falto el estilo de las alerts
       left: auto;
   }
 }
-
 .alerta-ok {
   background-color: rgb(109, 211, 109);
   color: rgb(2, 103, 2);
