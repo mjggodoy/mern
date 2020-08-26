@@ -2,7 +2,14 @@ import React, {Fragment, useState} from 'react';
 
 const Task = ({task}) => {
     return (
-        <button type="button" className="btn btn-blank">{task.name}</button>
+        <li className="task shadow">
+            <p>{task.name}</p>
+            <div className="status">
+                {task.status !== "closed" 
+                    ? <button className="complete">{task.status}</button> 
+                    : <button className="incomplete">{task.status}</button>}
+            </div>
+        </li>
     );
 }
 

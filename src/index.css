@@ -22,12 +22,9 @@ body {
   font-size: 1.6rem;
   font-family: var(--textFont);
 }
-
-
 h1, h2 {
   font-family: var(--headingFont);
   font-weight: 900;
-  margin: 0 0 4rem 0;
   text-align: center;
   color: var(--gris2);
 }
@@ -100,15 +97,12 @@ a {
   .seccion-principal {
       flex: 1;
   }
-
 }
-
 
 /* BARRA LATERAL */
 aside  {
   padding: 3rem;
 }
-
 .form-new-project {
   margin-top: 6rem;
 }
@@ -182,12 +176,10 @@ aside  {
 .containter-tasks {
   padding: 4rem;
 }
-
 .task-list {
   max-width: 600px;
   margin: 0 auto;
 }
-
 .task {
   display: flex;
   justify-content: space-between;
@@ -196,9 +188,8 @@ aside  {
   align-items: center;
   margin-bottom: 1rem;
   border-radius: .5rem;
-
 }
-.sombra {
+.shadow {
   -webkit-box-shadow: 0px 4px 10px -3px rgba(117,117,117,1);
   -moz-box-shadow: 0px 4px 10px -3px rgba(117,117,117,1);
   box-shadow: 0px 4px 10px -3px rgba(117,117,117,1);
@@ -222,12 +213,11 @@ aside  {
   border-radius: 0;
   margin: 0;
 }
-
-.estado {
+.status {
   margin-right: 1rem;
 }
-.estado button, 
-.mensaje {
+.status button, 
+.message {
   font-weight: 900;
   font-family: var(--textFont);
   font-size: 1rem;
@@ -236,20 +226,20 @@ aside  {
   cursor: pointer;
   border: none;
 }
-.mensaje {
+.message {
   text-align: center;
   font-size: 1.6rem;
   border-radius: 0;
 }
-.mensaje:hover {
+.message:hover {
   cursor: default;
 }
-.completo,
-.correcto {
-  background-color: rgba(154, 252, 154, .3);
+.complete,
+.correct {
+  background-color: rgba(72, 187, 72, 0.3);
   color: var(--gris3);
 }
-.incompleto{
+.incomplete{
   background-color: rgba(255, 178, 178, .4);
   color: var(--gris3);
 }
@@ -259,9 +249,6 @@ aside  {
   background-color: rgb(170, 0, 0);
   color: var(--blanco);
 }
-
-
-
 .tarea-enter,
 .proyecto-enter {
   opacity: 0;
