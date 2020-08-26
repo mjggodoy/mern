@@ -6,13 +6,13 @@ import TaskList from './../task/TaskList';
 
 const Projects = () => {
     return (
-        <div className="contenedor-app">
+        <div className="container-app">
             <SideBar/>
-            <div className="seccion-principal">
+            <div className="main-section">
                 <Bar/>
                 <main>
                 <TaskForm/>
-                    <div className="contenedor-tareas">
+                    <div className="containter-tasks">
                         <TaskList/>
                     </div>
                 </main>

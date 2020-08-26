@@ -89,16 +89,15 @@ a {
 }
 
 @media (min-width: 768px) {
-  .contenedor-app {
+  .container-app {
       display: flex;
       min-height: 100vh;
   }
-
   aside {
       background-color: var(--blanco);
       flex: 0 0 300px;
   }
-  .seccion-principal {
+  .main-section {
       flex: 1;
   }
 }
@@ -178,7 +177,7 @@ aside  {
 
 /** Task list **/
 .containter-tasks {
-  padding: 4rem;
+  padding: 2.5rem;
 }
 .task-list {
   max-width: 600px;
@@ -271,7 +270,6 @@ aside  {
   opacity: 0;
   transition: opacity 200ms;
 }
-
 .form-user {
     background-color: #334461;
     height: 100vh;
@@ -280,7 +278,6 @@ aside  {
     align-items: center;
     justify-content: center;
 }
-
 .container-form {
     padding: 5rem 3rem;
     max-width: 500px;
@@ -288,7 +285,6 @@ aside  {
     background-color: var(--blanco);
     border-radius: 1rem;
 }
-
 .field-form {
     display: flex;
     margin-bottom: 2rem;
@@ -308,7 +304,6 @@ aside  {
   padding: 1rem;
   flex: 1;
 }
-
 .link-account {
   margin-top: 2rem;
   display: block;

@@ -13,7 +13,6 @@ const Task = ({task}) => {
                 <button type="button" className="btn btn-primary">Edit</button>
                 <button type="button" className="btn btn-secondary">Delete</button>
             </div>
-            
         </li>
     );
 }
