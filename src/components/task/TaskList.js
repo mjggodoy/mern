@@ -1,11 +1,11 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment} from 'react';
 import Task from './Task';
 
 const TaskList = () => {
     const tasks = [
-        {name : "Task1", status: "completed"}, 
-        {name : "Task2", status: "closed"},
-        {name : "Task3", status: "in progress"}
+        {name : "Task1", id: "1", status: "completed"}, 
+        {name : "Task2", id: "2", status: "closed"},
+        {name : "Task3", id: "3", status: "in progress"}
     ];
 
     return (
@@ -14,7 +14,7 @@ const TaskList = () => {
             <ul className="task-list">
                 {tasks.length === 0 ? (<li className="task"><p>There are no tasks</p></li>) :
                 tasks.map(task => {
-                    return (<Task task = {task}/>
+                    return (<Task task = {task} key={task.id}/>
                 )})}
                  
             </ul>

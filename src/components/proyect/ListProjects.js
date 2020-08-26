@@ -1,11 +1,11 @@
-import React, {Fragment, useState} from 'react';
+import React from 'react';
 import Project from './Project';
 
 const ListProjects = () => {
     const projects = [
-        {name : "Intranet"}, 
-        {name : "Project Maria"},
-        {name : "Incasso"}
+        {name : "Intranet", id : "1"}, 
+        {name : "Project Maria", id : "3"},
+        {name : "Incasso", id : "4"}
     ];
 
     return (
@@ -13,6 +13,7 @@ const ListProjects = () => {
             {projects.map(project => {
                 return (<Project
                     project = {project}
+                    key = {project.id}
                 />
             )})}
         </ul>
