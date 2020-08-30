@@ -3,7 +3,7 @@ import projectContext from './../../context/projectos/projectContext';
 const NewProject = () => {
 
     const projectsContext = useContext(projectContext);
-    const {projectForm} = projectsContext;
+    const {projectForm, showForm} = projectsContext;
 
     const [newProject, saveNewProject] = useState({
         projectName : ""
@@ -24,7 +24,7 @@ const NewProject = () => {
 
     return(
         <Fragment>
-            <button type="button" className="btn btn-block btn-primary">New project</button>
+            <button type="button" className="btn btn-block btn-primary" onClick={showForm}>New project</button>
             {projectForm 
                 ? <form className="form-new-project"
                     onSubmit = {onSubmitProject}>
