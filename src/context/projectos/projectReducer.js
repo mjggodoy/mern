@@ -1,4 +1,4 @@
-import {PROJECT_FORM, GET_PROJECTS} from '../../types';
+import {PROJECT_FORM, GET_ALLPROJECTS} from '../../types';
 
 export default (state, action) => {
     switch(action.type) {
@@ -7,7 +7,7 @@ export default (state, action) => {
                 ...state, 
                 projectForm: true
             }
-        case GET_PROJECTS:
+        case GET_ALLPROJECTS:
             return {
                 ...state,
                 projects: action.payload
