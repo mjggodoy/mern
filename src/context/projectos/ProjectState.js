@@ -2,7 +2,7 @@ import React from 'react';
 import projectContext from './projectContext';
 import projectReducer from './projectReducer';
 import {useReducer} from 'react';
-import {PROJECT_FORM, GET_PROJECT} from './../../types';
+import {PROJECT_FORM, GET_PROJECTS} from './../../types';
 
 const ProjectState =  props => {
     const projects = [
@@ -26,7 +26,7 @@ const ProjectState =  props => {
 
     const getProjects = () => {
         dispatch({
-            type: GET_PROJECT,
+            type: GET_PROJECTS,
             payload: projects
         });
     }
