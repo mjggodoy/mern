@@ -5,7 +5,7 @@ import {useReducer} from 'react';
 
 const ProjectState =  props => {
     const initialState = {
-        newProject: false
+        projectForm: true
     }
 
     const [state, dispatch] = useReducer(projectReducer, initialState);
@@ -13,7 +13,7 @@ const ProjectState =  props => {
     return(
         <projectContext.Provider
             value = {{
-                newProject: state.newProject
+                projectForm: state.projectForm
             }}>
             {props.children}
         </projectContext.Provider>
