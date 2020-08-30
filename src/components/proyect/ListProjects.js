@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Project from './Project';
+import projectContext from './../../context/projectos/projectContext';
+
 
 const ListProjects = () => {
-    const projects = [
-        {name : "Intranet", id : "1"}, 
-        {name : "Project Maria", id : "3"},
-        {name : "Incasso", id : "4"}
-    ];
+
+    const projectsContext = useContext(projectContext);
+    const {projects} = projectsContext;
+
+    if(projects.length === 0) {
+        return null;
+    }
 
     return (
         <ul className="project-list">

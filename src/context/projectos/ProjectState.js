@@ -6,6 +6,12 @@ import {PROJECT_FORM} from './../../types';
 
 const ProjectState =  props => {
     const initialState = {
+        projects : [
+            {name : "Intranet", id : "1"}, 
+            {name : "Project Maria", id : "3"},
+            {name : "Incasso", id : "4"},
+            {name: "Test project", id: "5"}
+        ],
         projectForm: false
     }
 
@@ -19,6 +25,7 @@ const ProjectState =  props => {
         <projectContext.Provider
             value = {{
                 projectForm: state.projectForm,
+                projects : state.projects,
                 showForm
             }}>
             {props.children}
