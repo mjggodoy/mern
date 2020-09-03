@@ -5,7 +5,7 @@ const Login = () => {
   
     const [userInformation, saveUserInformation] = useState({
         email : "", 
-        password:""
+        password: ""
     });
    
     const startSession = e => {
@@ -37,7 +37,6 @@ const Login = () => {
                             onChange={startSession}>
                         </input>
                     </div>
-                    
                     <div className="field-form">
                         <label htmlFor="password">Password:</label>
                         <input type="password" 
@@ -48,7 +47,6 @@ const Login = () => {
                             onChange={startSession}>
                         </input>
                     </div>
-
                     <div className="field-form">
                         <input type="submit" className="btn btn-primary btn-block" value="Start session"></input>
                     </div>

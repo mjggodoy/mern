@@ -309,11 +309,7 @@ aside  {
   display: block;
   opacity: .7;
 }
-@ivanmercedes
-ivanmercedes commented 3 days ago • 
-el css no esta completo falto el estilo de las alerts
-
-.alerta {
+.alert {
   position: fixed;
   top: 0;
   left: 0;
@@ -327,18 +323,18 @@ el css no esta completo falto el estilo de las alerts
   width: 100%;
 }
 @media (min-width:768px) {
-  .alerta {
+  .alert {
       width: auto;
       top: 30px;
       right: 10px;
       left: auto;
   }
 }
-.alerta-ok {
+.alert-ok {
   background-color: rgb(109, 211, 109);
   color: rgb(2, 103, 2);
 }
-.alerta-error {
+.alert-error {
   background-color: rgb(230, 78, 78);
   color: var(--blanco);
 }

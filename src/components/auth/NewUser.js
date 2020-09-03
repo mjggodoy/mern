@@ -6,7 +6,7 @@ const NewUser = () => {
     const [userInformation, saveUserInformation] = useState({
         userName : "",
         email : "", 
-        password:"",
+        password: "",
         confirmUser: ""
     });
    
