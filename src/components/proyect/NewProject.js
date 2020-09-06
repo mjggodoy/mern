@@ -4,10 +4,11 @@ import projectContext from './../../context/projectos/projectContext';
 const NewProject = () => {
 
     const projectsContext = useContext(projectContext);
-    const {projectForm, showForm} = projectsContext;
+    const {projectForm, showForm, addProject} = projectsContext;
 
     const [newProject, saveNewProject] = useState({
-        projectName : ""
+        name : "",
+        id : ""
     });
 
     const onChangeProject = e => {
@@ -17,11 +18,15 @@ const NewProject = () => {
         });
     }
 
+    const {name} = newProject;
+
     const onSubmitProject = e => {
         e.preventDefault();
+        if (name.length === 0) {
+            return;
+        } 
+        addProject(newProject);
     }
-
-    const {projectName} = newProject;
 
     return(
         <Fragment>
@@ -31,8 +36,8 @@ const NewProject = () => {
                     onSubmit = {onSubmitProject}>
                     <input type="input-text" 
                             className="input-text"
-                            value = {projectName}
-                            name="projectName"
+                            value = {name}
+                            name="name"
                             placeholder="Add project name"
                             onChange={onChangeProject}>
                     </input>

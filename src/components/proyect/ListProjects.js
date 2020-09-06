@@ -6,7 +6,8 @@ const ListProjects = () => {
 
     const projectsContext = useContext(projectContext);
     const {projects, getProjects} = projectsContext;
-
+    console.log(projects);
+    
     useEffect(() => {
         getProjects();
     }, []);
@@ -14,7 +15,6 @@ const ListProjects = () => {
     if(projects.length === 0) {
         return null;
     }
-
     return (
         <ul className="project-list">
             {projects.map(project => {

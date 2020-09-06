@@ -2,7 +2,9 @@ import React from 'react';
 import projectContext from './projectContext';
 import projectReducer from './projectReducer';
 import {useReducer} from 'react';
-import {PROJECT_FORM, GET_ALLPROJECTS} from './../../types';
+import {PROJECT_FORM, GET_ALLPROJECTS, ADD_PROJECT} from './../../types';
+import {v4 as uuid} from 'uuid'
+
 
 const ProjectState =  props => {
     const projects = [
@@ -10,7 +12,8 @@ const ProjectState =  props => {
         {name : "Project Maria", id : "3"},
         {name : "Incasso", id : "4"},
         {name: "Test project", id: "5"}
-    ]
+    ];
+
     const initialState = {
         projects : [],
         projectForm: false
@@ -31,13 +34,22 @@ const ProjectState =  props => {
         });
     }
 
+    const addProject = project => {
+        project.id = 6;
+        dispatch({
+            type: ADD_PROJECT,
+            payload: project
+        });
+    }
+
     return(
         <projectContext.Provider
             value = {{
                 projectForm: state.projectForm,
                 projects : state.projects,
                 showForm,
-                getProjects
+                getProjects,
+                addProject
             }}>
             {props.children}
         </projectContext.Provider>
