@@ -16,7 +16,8 @@ export default (state, action) => {
         case ADD_PROJECT:
             return {
                 ...state,
-                projects: [...state.projects, action.payload]
+                projects: [...state.projects, action.payload],
+                projectForm:false
             }
         default: return state;
     }

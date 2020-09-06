@@ -35,7 +35,7 @@ const ProjectState =  props => {
     }
 
     const addProject = project => {
-        project.id = 6;
+        project.id = uuid();
         dispatch({
             type: ADD_PROJECT,
             payload: project

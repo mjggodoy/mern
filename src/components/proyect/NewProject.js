@@ -26,6 +26,7 @@ const NewProject = () => {
             return;
         } 
         addProject(newProject);
+        saveNewProject({name: ""});
     }
 
     return(
