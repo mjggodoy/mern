@@ -1,9 +1,20 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useContext} from 'react';
+import projectContext from './../../context/projectos/projectContext';
 
 const TaskForm = () => {
+    const projectsContext = useContext(projectContext);
+    const {project} = projectsContext;
+    
+    
     const [newTask, saveNewTask] = useState({
         taskName : ""
     });
+
+    if (project === null) {
+        return null;
+    }
+    
+    const [currentProject] = project;
 
     const onChangeTask = e => {
         saveNewTask({
