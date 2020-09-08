@@ -6,7 +6,6 @@ const ListProjects = () => {
 
     const projectsContext = useContext(projectContext);
     const {projects, getProjects} = projectsContext;
-    console.log(projects);
     
     useEffect(() => {
         getProjects();

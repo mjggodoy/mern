@@ -3,15 +3,14 @@ import projectContext from './projectContext';
 import projectReducer from './projectReducer';
 import {useReducer} from 'react';
 import {PROJECT_FORM, GET_ALLPROJECTS, ADD_PROJECT} from './../../types';
-import {v4 as uuid} from 'uuid'
-
+import {v4 as uuid} from 'uuid';
 
 const ProjectState =  props => {
     const projects = [
-        {name : "Intranet", id : "1"}, 
-        {name : "Project Maria", id : "3"},
-        {name : "Incasso", id : "4"},
-        {name: "Test project", id: "5"}
+        {projectName : "Intranet", id : "1"}, 
+        {projectName : "Project Maria", id : "3"},
+        {projectName : "Incasso", id : "4"},
+        {projectName: "Test project", id: "5"}
     ];
 
     const initialState = {

@@ -17,7 +17,7 @@ export default (state, action) => {
             return {
                 ...state,
                 projects: [...state.projects, action.payload],
-                projectForm:false
+                projectForm: false
             }
         default: return state;
     }

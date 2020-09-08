@@ -5,9 +5,8 @@ const NewProject = () => {
 
     const projectsContext = useContext(projectContext);
     const {projectForm, showForm, addProject} = projectsContext;
-
     const [newProject, saveNewProject] = useState({
-        name : "",
+        projectName : "",
         id : ""
     });
 
@@ -18,15 +17,15 @@ const NewProject = () => {
         });
     }
 
-    const {name} = newProject;
+    const {projectName} = newProject;
 
     const onSubmitProject = e => {
         e.preventDefault();
-        if (name.length === 0) {
+        if (projectName.length === 0) {
             return;
         } 
         addProject(newProject);
-        saveNewProject({name: ""});
+        saveNewProject({projectName: ""});
     }
 
     return(
@@ -37,8 +36,8 @@ const NewProject = () => {
                     onSubmit = {onSubmitProject}>
                     <input type="input-text" 
                             className="input-text"
-                            value = {name}
-                            name="name"
+                            value={projectName}
+                            name="projectName"
                             placeholder="Add project name"
                             onChange={onChangeProject}>
                     </input>
