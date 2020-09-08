@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import projectContext from './../../context/projectos/projectContext';
 
 const Project = ({project}) => {
+    const projectsContext = useContext(projectContext);
+    const {selectedCurrentProjectByUser} = projectsContext;
+    
+    const onClickselectedProject = () => {
+        selectedCurrentProjectByUser(project.id);
+    }
+
     return (
-        <button type="button" className="btn btn-blank">{project.projectName}</button>
+        <button onClick={onClickselectedProject} type="button" className="btn btn-blank">{project.projectName}</button>
     );
 }
 

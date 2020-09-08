@@ -5,7 +5,8 @@ import {useReducer} from 'react';
 import {PROJECT_FORM, 
         GET_ALLPROJECTS, 
         ADD_PROJECT,
-        VALIDATE_FORM} from './../../types';
+        VALIDATE_FORM,
+        CURRENT_PROJECT} from './../../types';
 import {v4 as uuid} from 'uuid';
 
 const ProjectState =  props => {
@@ -20,6 +21,7 @@ const ProjectState =  props => {
         projects : [],
         projectForm: false,
         errorForm: false,
+        project: null
     }
 
     const [state, dispatch] = useReducer(projectReducer, initialState);
@@ -51,16 +53,25 @@ const ProjectState =  props => {
         });
     }
 
+    const selectedCurrentProjectByUser = projectId => {
+        dispatch({
+            type: CURRENT_PROJECT,
+            payload: projectId
+        });
+    }
+
     return(
         <projectContext.Provider
             value = {{
                 projectForm: state.projectForm,
                 projects : state.projects,
                 errorForm: state.errorForm,
+                project: state.project,
                 showForm,
                 getProjects,
                 addProject,
-                showError
+                showError,
+                selectedCurrentProjectByUser
             }}>
             {props.children}
         </projectContext.Provider>

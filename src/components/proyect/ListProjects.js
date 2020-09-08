@@ -3,7 +3,6 @@ import Project from './Project';
 import projectContext from './../../context/projectos/projectContext';
 
 const ListProjects = () => {
-
     const projectsContext = useContext(projectContext);
     const {projects, getProjects} = projectsContext;
     
