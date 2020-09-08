@@ -232,7 +232,6 @@ aside  {
 .message {
   text-align: center;
   font-size: 1.6rem;
-  border-radius: 0;
 }
 .message:hover {
   cursor: default;
@@ -249,7 +248,7 @@ aside  {
 .error {
   max-width: 600px;
   margin: 2rem auto 0 auto;
-  background-color: rgb(170, 0, 0);
+  background-color: rgb(175 51 51);
   color: var(--blanco);
 }
 .tarea-enter,
