@@ -34,7 +34,7 @@ const NewProject = () => {
 
     return(
         <Fragment>
-            <button type="button" className="btn btn-block btn-primary" onClick={onClickForm}>New project</button>
+            <button type="button" className="btn btn-block btn-primary" onClick={onClickForm}>New project!</button>
             {projectForm 
                 ? <form className="form-new-project"
                     onSubmit = {onSubmitProject}>

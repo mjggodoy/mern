@@ -5,7 +5,6 @@ const TaskForm = () => {
     const projectsContext = useContext(projectContext);
     const {project} = projectsContext;
     
-    
     const [newTask, saveNewTask] = useState({
         taskName : ""
     });
