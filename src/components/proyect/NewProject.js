@@ -4,7 +4,7 @@ import projectContext from './../../context/projectos/projectContext';
 const NewProject = () => {
 
     const projectsContext = useContext(projectContext);
-    const {projectForm, showForm, addProject} = projectsContext;
+    const {projectForm, showForm, addProject, errorForm, showError} = projectsContext;
     const [newProject, saveNewProject] = useState({
         projectName : "",
         id : ""
@@ -22,15 +22,21 @@ const NewProject = () => {
     const onSubmitProject = e => {
         e.preventDefault();
         if (projectName.length === 0) {
+            showError();
             return;
         } 
         addProject(newProject);
         saveNewProject({projectName: ""});
     }
 
+    const onClickForm = () => {
+        showForm();
+    }
+
+
     return(
         <Fragment>
-            <button type="button" className="btn btn-block btn-primary" onClick={showForm}>New project</button>
+            <button type="button" className="btn btn-block btn-primary" onClick={onClickForm}>New project</button>
             {projectForm 
                 ? <form className="form-new-project"
                     onSubmit = {onSubmitProject}>
@@ -45,6 +51,7 @@ const NewProject = () => {
                     </form>
                 : null
         }
+        {errorForm ? <p className="message error">The project name is required</p> : null}
         </Fragment>
     );
 }
