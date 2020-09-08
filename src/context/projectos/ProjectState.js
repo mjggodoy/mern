@@ -2,7 +2,10 @@ import React from 'react';
 import projectContext from './projectContext';
 import projectReducer from './projectReducer';
 import {useReducer} from 'react';
-import {PROJECT_FORM, GET_ALLPROJECTS, ADD_PROJECT, VALIDATE_FORM} from './../../types';
+import {PROJECT_FORM, 
+        GET_ALLPROJECTS, 
+        ADD_PROJECT,
+        VALIDATE_FORM} from './../../types';
 import {v4 as uuid} from 'uuid';
 
 const ProjectState =  props => {

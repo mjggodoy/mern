@@ -2,7 +2,6 @@ import React, {Fragment, useState, useContext} from 'react';
 import projectContext from './../../context/projectos/projectContext';
 
 const NewProject = () => {
-
     const projectsContext = useContext(projectContext);
     const {projectForm, showForm, addProject, errorForm, showError} = projectsContext;
     const [newProject, saveNewProject] = useState({
@@ -33,7 +32,6 @@ const NewProject = () => {
         showForm();
     }
 
-
     return(
         <Fragment>
             <button type="button" className="btn btn-block btn-primary" onClick={onClickForm}>New project</button>
@@ -50,8 +48,8 @@ const NewProject = () => {
                     <input type="submit" className="btn btn-primary btn-block" value="Add new project!"></input>
                     </form>
                 : null
-        }
-        {errorForm ? <p className="message error">The project name is required</p> : null}
+            }
+            {errorForm ? <p className="message error">The project name is required</p> : null}
         </Fragment>
     );
 }
