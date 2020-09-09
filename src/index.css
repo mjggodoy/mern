@@ -337,3 +337,7 @@ aside  {
   background-color: rgb(230, 78, 78);
   color: var(--blanco);
 }
+.no-projects {
+  color: #0e145f;
+  margin-left: 30px;
+}

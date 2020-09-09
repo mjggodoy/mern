@@ -11,7 +11,7 @@ const ListProjects = () => {
     }, []);
 
     if(projects.length === 0) {
-        return <h3>There are no projects, start creating one project!</h3>;
+        return <h3 className="no-projects">There are no projects, start creating one project!</h3>;
     }
     return (
         <ul className="project-list">

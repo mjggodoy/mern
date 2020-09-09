@@ -19,7 +19,6 @@ const TaskList = () => {
 
     const onClickDeleteProject = () => {
         deleteProject(currentProject.id);
-        console.log(currentProject.id);
     }
 
     return (
