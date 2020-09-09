@@ -6,7 +6,8 @@ import {PROJECT_FORM,
         GET_ALLPROJECTS, 
         ADD_PROJECT,
         VALIDATE_FORM,
-        CURRENT_PROJECT} from './../../types';
+        CURRENT_PROJECT,
+        DELETE_PROJECT} from './../../types';
 import {v4 as uuid} from 'uuid';
 
 const ProjectState =  props => {
@@ -60,6 +61,14 @@ const ProjectState =  props => {
         });
     }
 
+    const deleteProject = projectId => {
+        console.log(projectId);
+        dispatch({
+            type: DELETE_PROJECT,
+            payload: projectId
+        });
+    }
+
     return(
         <projectContext.Provider
             value = {{
@@ -71,7 +80,8 @@ const ProjectState =  props => {
                 getProjects,
                 addProject,
                 showError,
-                selectedCurrentProjectByUser
+                selectedCurrentProjectByUser,
+                deleteProject
             }}>
             {props.children}
         </projectContext.Provider>

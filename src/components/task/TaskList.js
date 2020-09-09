@@ -4,7 +4,7 @@ import projectContext from './../../context/projectos/projectContext';
 
 const TaskList = () => {
     const projectsContext = useContext(projectContext);
-    const {project} = projectsContext;
+    const {project, deleteProject} = projectsContext;
     const tasks = [
         {name : "Task1", id: "1", status: "completed"}, 
         {name : "Task2", id: "2", status: "closed"},
@@ -16,6 +16,12 @@ const TaskList = () => {
     }
 
     const [currentProject] = project;
+
+    const onClickDeleteProject = () => {
+        deleteProject(currentProject.id);
+        console.log(currentProject.id);
+    }
+
     return (
         <Fragment>
             <h1>{currentProject.projectName}</h1>
@@ -26,7 +32,7 @@ const TaskList = () => {
                 )})}
                  
             </ul>
-            <button type="button" className="btn btn-delete">Delete project &times;</button> 
+            <button type="button" onClick={onClickDeleteProject} className="btn btn-delete">Delete project &times;</button> 
         </Fragment>
     );
 }
