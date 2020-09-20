@@ -62,7 +62,6 @@ const ProjectState =  props => {
     }
 
     const deleteProject = projectId => {
-        console.log(projectId);
         dispatch({
             type: DELETE_PROJECT,
             payload: projectId
