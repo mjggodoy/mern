@@ -8,21 +8,22 @@ import {
 
 const TaskState =  props => {
     const tasks = [
-        {name : "Task1", id: "1", status: "completed", projectId: 1}, 
-        {name : "Task2", id: "2", status: "closed", projectId: 3},
-        {name : "Task3", id: "3", status: "in progress", projectId: 4},
-        {name : "Task1", id: "1", status: "completed", projectId: 5}, 
-        {name : "Task2", id: "2", status: "closed", projectId: 3},
-        {name : "Task1", id: "1", status: "completed", projectId: 5}, 
-        {name : "Task2", id: "2", status: "closed", projectId: 3},
-        {name : "Task1", id: "1", status: "completed", projectId: 1}, 
-        {name : "Task2", id: "2", status: "closed", projectId: 4},
-        {name : "Task1", id: "1", status: "completed", projectId: 5}, 
-        {name : "Task2", id: "2", status: "closed", projectId: 3},
+        {name : "Task1", id: "1", status: "completed", projectId: "1"}, 
+        {name : "Task2", id: "2", status: "closed", projectId: "3"},
+        {name : "Task3", id: "3", status: "in progress", projectId: "4"},
+        {name : "Task1", id: "4", status: "completed", projectId: "5"}, 
+        {name : "Task2", id: "5", status: "closed", projectId: "3"},
+        {name : "Task1", id: "6", status: "completed", projectId: "5"}, 
+        {name : "Task2", id: "7", status: "closed", projectId: "3"},
+        {name : "Task1", id: "8", status: "completed", projectId: "1"}, 
+        {name : "Task2", id: "9", status: "closed", projectId: "4"},
+        {name : "Task1", id: "10", status: "completed", projectId: "5"}, 
+        {name : "Task2", id: "11", status: "closed", projectId: "3"},
     ];
 
     const initialState = {
         tasks: tasks,
+        tasksByProject: null
     }
 
     const [state, dispatch] = useReducer(TaskReducer, initialState);
@@ -38,6 +39,7 @@ const TaskState =  props => {
         <TaskContext.Provider
             value = {{
                 tasks : state.tasks,
+                tasksByProject: state.tasksByProject,
                 getTasksByProjectId
             }}>
             {props.children}

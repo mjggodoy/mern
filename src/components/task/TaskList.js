@@ -1,11 +1,14 @@
 import React, {Fragment, useContext} from 'react';
 import Task from './Task';
-import projectContext from '../../context/projectos/ProjectContext';
+import ProjectContext from '../../context/projectos/ProjectContext';
+import TaskContext from '../../context/tasks/TaskContext';
 
 const TaskList = () => {
-    const projectsContext = useContext(projectContext);
+    const projectsContext = useContext(ProjectContext);
     const {project, deleteProject} = projectsContext;
-    const tasks = [];
+    
+    const taskContext = useContext(TaskContext);
+    const {tasksByProject} = taskContext;
 
     if (project === null) {
         return <h2>Select a project</h2>;
@@ -21,8 +24,8 @@ const TaskList = () => {
         <Fragment>
             <h1>{currentProject.projectName}</h1>
             <ul className="task-list">
-                {tasks.length === 0 ? (<li className="task"><p>There are no tasks</p></li>) :
-                tasks.map(task => {
+                {tasksByProject.length === 0 ? (<li className="task"><p>There are no tasks</p></li>) :
+                tasksByProject.map(task => {
                     return (<Task task = {task} key={task.id}/>
                 )})}
                  
