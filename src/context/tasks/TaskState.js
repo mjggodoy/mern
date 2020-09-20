@@ -5,19 +5,30 @@ import {useReducer} from 'react';
 
 const TaskState =  props => {
     const tasks = [
-        {name : "Task1", id: "1", status: "completed"}, 
-        {name : "Task2", id: "2", status: "closed"},
-        {name : "Task3", id: "3", status: "in progress"}
+        {name : "Task1", id: "1", status: "completed", projectId: 1}, 
+        {name : "Task2", id: "2", status: "closed", projectId: 3},
+        {name : "Task3", id: "3", status: "in progress", projectId: 4},
+        {name : "Task1", id: "1", status: "completed", projectId: 5}, 
+        {name : "Task2", id: "2", status: "closed", projectId: 3},
+        {name : "Task1", id: "1", status: "completed", projectId: 5}, 
+        {name : "Task2", id: "2", status: "closed", projectId: 3},
+        {name : "Task1", id: "1", status: "completed", projectId: 1}, 
+        {name : "Task2", id: "2", status: "closed", projectId: 4},
+        {name : "Task1", id: "1", status: "completed", projectId: 5}, 
+        {name : "Task2", id: "2", status: "closed", projectId: 3},
     ];
 
     const initialState = {
-        tasks: []
+        tasks: tasks,
     }
 
     const [state, dispatch] = useReducer(TaskReducer, initialState);
     
     return(
-        <TaskContext.Provider>
+        <TaskContext.Provider
+            value = {{
+                tasks : state.tasks
+            }}>
             {props.children}
         </TaskContext.Provider>
     )

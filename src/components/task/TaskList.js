@@ -5,11 +5,7 @@ import projectContext from '../../context/projectos/ProjectContext';
 const TaskList = () => {
     const projectsContext = useContext(projectContext);
     const {project, deleteProject} = projectsContext;
-    const tasks = [
-        {name : "Task1", id: "1", status: "completed"}, 
-        {name : "Task2", id: "2", status: "closed"},
-        {name : "Task3", id: "3", status: "in progress"}
-    ];
+    const tasks = [];
 
     if (project === null) {
         return <h2>Select a project</h2>;
