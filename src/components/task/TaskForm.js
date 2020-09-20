@@ -1,9 +1,13 @@
 import React, {Fragment, useState, useContext} from 'react';
 import ProjectContext from '../../context/projectos/ProjectContext';
+import TaskContext from '../../context/tasks/TaskContext';
 
 const TaskForm = () => {
     const projectsContext = useContext(ProjectContext);
     const {project} = projectsContext;
+
+    const taskContext = useContext(TaskContext);
+    const {addNewTask} = taskContext;
     
     const [newTask, saveNewTask] = useState({
         taskName : ""
@@ -24,6 +28,8 @@ const TaskForm = () => {
 
     const onSubmitTaskForm = e => {
         e.preventDefault();
+        addNewTask(newTask);
+        saveNewTask(newTask);
     }
 
     const {taskName} = newTask;
