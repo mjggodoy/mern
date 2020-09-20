@@ -1,6 +1,6 @@
 import React, {Fragment, useContext} from 'react';
 import Task from './Task';
-import projectContext from './../../context/projectos/projectContext';
+import projectContext from '../../context/projectos/ProjectContext';
 
 const TaskList = () => {
     const projectsContext = useContext(projectContext);

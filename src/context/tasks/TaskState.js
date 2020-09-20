@@ -1,6 +1,6 @@
 import React from 'react';
-import taskContext from './taskContext';
-import taskReducer from './taskReducer';
+import TaskContext from './TaskContext';
+import TaskReducer from './TaskReducer';
 import {useReducer} from 'react';
 
 const TaskState =  props => {
@@ -14,11 +14,12 @@ const TaskState =  props => {
         tasks: []
     }
 
-    const [state, dispatch] = useReducer(taskReducer, initialState);
+    const [state, dispatch] = useReducer(TaskReducer, initialState);
+    
     return(
-        <taskContext.Provider>
+        <TaskContext.Provider>
             {props.children}
-        </taskContext.Provider>
+        </TaskContext.Provider>
     )
 }
 

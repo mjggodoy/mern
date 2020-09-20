@@ -1,6 +1,6 @@
 import React from 'react';
-import projectContext from './projectContext';
-import projectReducer from './projectReducer';
+import projectContext from './ProjectContext';
+import ProjectReducer from './ProjectReducer';
 import {useReducer} from 'react';
 import {PROJECT_FORM, 
         GET_ALLPROJECTS, 
@@ -25,7 +25,7 @@ const ProjectState =  props => {
         project: null
     }
 
-    const [state, dispatch] = useReducer(projectReducer, initialState);
+    const [state, dispatch] = useReducer(ProjectReducer, initialState);
 
     const showForm = () => {
         dispatch({

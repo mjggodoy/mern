@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import projectContext from './../../context/projectos/projectContext';
+import ProjectContext from '../../context/projectos/ProjectContext';
 
 const Project = ({project}) => {
-    const projectsContext = useContext(projectContext);
+    const projectsContext = useContext(ProjectContext);
     const {selectedCurrentProjectByUser} = projectsContext;
     
     const onClickselectedProject = () => {

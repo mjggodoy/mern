@@ -1,8 +1,8 @@
 import React, {Fragment, useState, useContext} from 'react';
-import projectContext from './../../context/projectos/projectContext';
+import ProjectContext from '../../context/projectos/ProjectContext';
 
 const NewProject = () => {
-    const projectsContext = useContext(projectContext);
+    const projectsContext = useContext(ProjectContext);
     const {projectForm, showForm, addProject, errorForm, showError} = projectsContext;
     const [newProject, saveNewProject] = useState({
         projectName : "",
