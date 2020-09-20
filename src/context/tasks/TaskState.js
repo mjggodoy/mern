@@ -37,6 +37,7 @@ const TaskState =  props => {
     }
 
     const addNewTask = task => {
+        console.log(task);
         dispatch({
             type: ADD_NEW_TASK,
             payload: task

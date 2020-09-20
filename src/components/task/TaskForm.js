@@ -10,7 +10,9 @@ const TaskForm = () => {
     const {addNewTask} = taskContext;
     
     const [newTask, saveNewTask] = useState({
-        taskName : ""
+        name : "", 
+        id: "",
+        projectId: ""
     });
 
     if (project === null) {
@@ -18,6 +20,7 @@ const TaskForm = () => {
     }
     
     const [currentProject] = project;
+    const {name} = newTask;
 
     const onChangeTask = e => {
         saveNewTask({
@@ -28,20 +31,21 @@ const TaskForm = () => {
 
     const onSubmitTaskForm = e => {
         e.preventDefault();
+        newTask.projectId = currentProject.id;
+        newTask.status = "in progress";
         addNewTask(newTask);
         saveNewTask(newTask);
     }
 
-    const {taskName} = newTask;
     return (
         <Fragment>
             <div className="form">
                 <form onSubmit={onSubmitTaskForm}>
                     <div className="container-input">
                         <input className="input-text" type="text-input" 
-                            name="taskName"
+                            name="name"
                             placeholder="Add task name"
-                            value = {taskName}
+                            value = {name}
                             onChange={onChangeTask}>
                         </input>
                     </div>
