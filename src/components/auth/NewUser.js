@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
 const NewUser = () => {
-  
     const [userInformation, saveUserInformation] = useState({
         userName : "",
         email : "", 

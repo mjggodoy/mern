@@ -1,4 +1,5 @@
 import React from 'react';
+
 const Bar = () => {
     return (
        <header className="app-header">
@@ -7,7 +8,6 @@ const Bar = () => {
                 <a href="/">Close session</a>
             </nav>
        </header>
-      
     );
 }
 export default Bar;

@@ -28,7 +28,6 @@ const TaskList = () => {
                 tasksByProject.map(task => {
                     return (<Task task = {task} key={task.id}/>
                 )})}
-                 
             </ul>
             <button type="button" onClick={onClickDeleteProject} className="btn btn-delete">Delete project &times;</button> 
         </Fragment>

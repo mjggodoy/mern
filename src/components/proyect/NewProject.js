@@ -53,5 +53,4 @@ const NewProject = () => {
         </Fragment>
     );
 }
-
 export default NewProject;
