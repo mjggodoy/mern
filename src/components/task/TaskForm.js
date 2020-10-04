@@ -7,7 +7,7 @@ const TaskForm = () => {
     const {project} = projectsContext;
 
     const taskContext = useContext(TaskContext);
-    const {addNewTask, errorTaskForm, validateTaskForm} = taskContext;
+    const {addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId} = taskContext;
     
     const [newTask, saveNewTask] = useState({
         name : "", 
@@ -37,8 +37,10 @@ const TaskForm = () => {
         }
         newTask.projectId = currentProject.id;
         newTask.status = "in progress";
+        
         addNewTask(newTask);
         saveNewTask({name:''});
+        getTasksByProjectId(currentProject.id); 
     }
 
     return (
