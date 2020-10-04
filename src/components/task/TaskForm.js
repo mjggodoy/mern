@@ -57,7 +57,7 @@ const TaskForm = () => {
                         <input type="submit" className="btn btn-primary btn-block" value="Add new task!"></input>
                     </div>
                 </form> : null}
-                {errorTaskForm ? <p className="message error">The task name is required</p> : null}
+                {errorTaskForm ? <p className="message error errorTask">The task name is required</p> : null}
             </div>
         </Fragment>
     );

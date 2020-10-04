@@ -251,6 +251,11 @@ aside  {
   background-color: rgb(175 51 51);
   color: var(--blanco);
 }
+.errorTask {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font: menu;
+}
 .tarea-enter,
 .proyecto-enter {
   opacity: 0;
