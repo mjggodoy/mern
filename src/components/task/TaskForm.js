@@ -7,7 +7,7 @@ const TaskForm = () => {
     const {project} = projectsContext;
 
     const taskContext = useContext(TaskContext);
-    const {addNewTask} = taskContext;
+    const {addNewTask, errorTaskForm, validateTaskForm} = taskContext;
     
     const [newTask, saveNewTask] = useState({
         name : "", 
@@ -31,16 +31,20 @@ const TaskForm = () => {
 
     const onSubmitTaskForm = e => {
         e.preventDefault();
+        if (newTask.name.trim() === '') {
+            validateTaskForm();
+            return;
+        }
         newTask.projectId = currentProject.id;
         newTask.status = "in progress";
         addNewTask(newTask);
-        saveNewTask(newTask);
+        saveNewTask({name:''});
     }
 
     return (
         <Fragment>
             <div className="form">
-                <form onSubmit={onSubmitTaskForm}>
+                {newTask ? <form onSubmit={onSubmitTaskForm}>
                     <div className="container-input">
                         <input className="input-text" type="text-input" 
                             name="name"
@@ -52,7 +56,8 @@ const TaskForm = () => {
                     <div className="container-input">
                         <input type="submit" className="btn btn-primary btn-block" value="Add new task!"></input>
                     </div>
-                </form>
+                </form> : null}
+                {errorTaskForm ? <p className="message error">The task name is required</p> : null}
             </div>
         </Fragment>
     );
