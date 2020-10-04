@@ -1,6 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import TaskContext from '../../context/tasks/TaskContext';
 
 const Task = ({task}) => {
+
+    const taskContext = useContext(TaskContext);
+    const {deleteTask} = taskContext;
+    
+    const onClickDeleteTask = () => {
+        deleteTask(task.id);
+    }
+
     return (
         <li className="task shadow">
             <p>{task.name}</p>
@@ -12,7 +21,7 @@ const Task = ({task}) => {
             </div>
             <div className="actions">
                 <button type="button" className="btn btn-primary">Edit</button>
-                <button type="button" className="btn btn-secondary">Delete</button>
+                <button type="button" className="btn btn-secondary" onClick={onClickDeleteTask}>Delete Task &times;</button>
             </div>
         </li>
     );

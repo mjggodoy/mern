@@ -5,7 +5,8 @@ import {useReducer} from 'react';
 import {
     TASK_PER_PROJECT,
     ADD_NEW_TASK,
-    VALIDATE_TASK_FORM
+    VALIDATE_TASK_FORM,
+    DELETE_TASK
 } from './../../types';
 
 const TaskState =  props => {
@@ -26,7 +27,7 @@ const TaskState =  props => {
     const initialState = {
         tasks: tasks,
         tasksByProject: null,
-        errorTaskForm: false
+        errorTaskForm: false,
     }
 
     const [state, dispatch] = useReducer(TaskReducer, initialState);
@@ -45,9 +46,16 @@ const TaskState =  props => {
         });
     }
 
-    const validateTaskForm = () => {
+    const validateTaskForm = task => {
         dispatch({
             type: VALIDATE_TASK_FORM,
+        });
+    }
+
+    const deleteTask = id => {
+        dispatch({
+            type: DELETE_TASK,
+            payload: id
         });
     }
     
@@ -59,7 +67,8 @@ const TaskState =  props => {
                 tasksByProject: state.tasksByProject,
                 getTasksByProjectId,
                 addNewTask,
-                validateTaskForm
+                validateTaskForm,
+                deleteTask
             }}>
             {props.children}
         </TaskContext.Provider>
