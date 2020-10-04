@@ -46,7 +46,7 @@ const TaskState =  props => {
         });
     }
 
-    const validateTaskForm = task => {
+    const validateTaskForm = () => {
         dispatch({
             type: VALIDATE_TASK_FORM,
         });

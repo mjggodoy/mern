@@ -2,12 +2,12 @@ import React, {useContext} from 'react';
 import TaskContext from '../../context/tasks/TaskContext';
 
 const Task = ({task}) => {
-
     const taskContext = useContext(TaskContext);
-    const {deleteTask} = taskContext;
+    const {deleteTask, getTasksByProjectId} = taskContext;
     
     const onClickDeleteTask = () => {
         deleteTask(task.id);
+        getTasksByProjectId(task.projectId);
     }
 
     return (

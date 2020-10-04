@@ -1,6 +1,7 @@
 import React, {Fragment, useState, useContext} from 'react';
 import ProjectContext from '../../context/projectos/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
+import {v4 as uuid} from 'uuid';
 
 const TaskForm = () => {
     const projectsContext = useContext(ProjectContext);
@@ -37,6 +38,7 @@ const TaskForm = () => {
         }
         newTask.projectId = currentProject.id;
         newTask.status = "in progress";
+        newTask.id = uuid();
         
         addNewTask(newTask);
         saveNewTask({name:''});
