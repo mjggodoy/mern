@@ -42,6 +42,7 @@ export default (state, action) => {
                 project.id !== action.payload),
                 project: null
             }
-        default: return state;
+        default: 
+            return state;
     }
 }

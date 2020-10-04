@@ -12,13 +12,13 @@ export default (state, action) => {
                 ...state,
                 tasksByProject: state.tasks.filter(
                     task => task.projectId === action.payload
-                )}
+            )}
         case ADD_NEW_TASK:
             return {
                 ...state,
                 tasks: [...state.tasks, action.payload],
                 errorTaskForm: false
-                }
+            }
         case VALIDATE_TASK_FORM:
             return {
                 ...state,
