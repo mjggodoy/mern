@@ -8,19 +8,19 @@ const NewUser = () => {
         password: "",
         confirmUser: ""
     });
-   
+
     const startSession = e => {
         saveUserInformation({
             ...userInformation, 
             [e.target.name]: e.target.value});
     }
-    
+
     const onSubmit = e => {
         e.preventDefault();
     }
 
     const {userName, email, password, confirmUser} = userInformation;
-    
+
     return (
         <div className="form-user">
             <div className="container-form shadow-dark">

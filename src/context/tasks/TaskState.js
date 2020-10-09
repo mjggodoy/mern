@@ -58,7 +58,7 @@ const TaskState =  props => {
             payload: id
         });
     }
-    
+
     return(
         <TaskContext.Provider
             value = {{

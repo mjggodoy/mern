@@ -7,7 +7,7 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 const TaskList = () => {
     const projectsContext = useContext(ProjectContext);
     const {project, deleteProject} = projectsContext;
-    
+
     const taskContext = useContext(TaskContext);
     const {tasksByProject} = taskContext;
 

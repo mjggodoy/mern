@@ -19,7 +19,7 @@ const TaskForm = () => {
     if (project === null) {
         return null;
     }
-    
+
     const [currentProject] = project;
     const {name} = newTask;
 
