@@ -1,7 +1,6 @@
 import React, {Fragment, useState, useContext, useEffect} from 'react';
 import ProjectContext from '../../context/projectos/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
-import {v4 as uuid} from 'uuid';
 
 const TaskForm = () => {
     const {project} = useContext(ProjectContext);
@@ -48,11 +47,9 @@ const TaskForm = () => {
         if (selectedTask === null) {
             newTask.projectId = currentProject.id;
             newTask.status = "in progress";
-            newTask.id = uuid();
             addNewTask(newTask);
         } else {
             updateOrModifyTask(newTask);
-            console.log(selectedTask);
             cleanSelectedTask(selectedTask)
         }
         saveNewTask({name:''});

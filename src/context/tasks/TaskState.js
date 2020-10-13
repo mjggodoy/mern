@@ -2,6 +2,7 @@ import React from 'react';
 import TaskContext from './TaskContext';
 import TaskReducer from './TaskReducer';
 import {useReducer} from 'react';
+import {v4 as uuid} from 'uuid';
 import {
     TASK_PER_PROJECT,
     ADD_NEW_TASK,
@@ -46,6 +47,7 @@ const TaskState =  props => {
     }
 
     const addNewTask = task => {
+        task.id = uuid();
         dispatch({
             type: ADD_NEW_TASK,
             payload: task

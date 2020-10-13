@@ -55,7 +55,6 @@ export default (state, action) => {
             return {
                 ...state,
                 selectedTask: null
-
             } 
         default: 
             return state;
