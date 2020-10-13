@@ -10,7 +10,7 @@ const TaskList = () => {
 
     const taskContext = useContext(TaskContext);
     const {tasksByProject} = taskContext;
-    console.log(tasksByProject, project);
+
     if (project === null) {
         return <h2>Select a project</h2>;
     }

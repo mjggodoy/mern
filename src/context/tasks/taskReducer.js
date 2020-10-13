@@ -32,7 +32,6 @@ export default (state, action) => {
                 task.id !== action.payload)
             }
         case STATUS_TASK:
-            console.log(state.tasksByProject);
             return {
                 ...state,
                 tasksByProject: state.tasksByProject.map(task =>
