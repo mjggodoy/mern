@@ -6,7 +6,8 @@ import {
     TASK_PER_PROJECT,
     ADD_NEW_TASK,
     VALIDATE_TASK_FORM,
-    DELETE_TASK
+    DELETE_TASK,
+    STATUS_TASK
 } from './../../types';
 
 const TaskState =  props => {
@@ -20,7 +21,7 @@ const TaskState =  props => {
         {name : "Task2", id: "7", status: "closed", projectId: "3"},
         {name : "Task1", id: "8", status: "completed", projectId: "1"}, 
         {name : "Task2", id: "9", status: "closed", projectId: "4"},
-        {name : "Task1", id: "10", status: "completed", projectId: "5"}, 
+        {name : "Task1", id: "10", status: "in progress", projectId: "5"}, 
         {name : "Task2", id: "11", status: "closed", projectId: "3"},
     ];
 
@@ -59,6 +60,13 @@ const TaskState =  props => {
         });
     }
 
+    const changeStatusTask = task => {
+        dispatch({
+            type: STATUS_TASK,
+            payload: task
+        });
+    }
+
     return(
         <TaskContext.Provider
             value = {{
@@ -68,7 +76,8 @@ const TaskState =  props => {
                 getTasksByProjectId,
                 addNewTask,
                 validateTaskForm,
-                deleteTask
+                deleteTask,
+                changeStatusTask
             }}>
             {props.children}
         </TaskContext.Provider>
