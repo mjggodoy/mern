@@ -26,7 +26,6 @@ const Task = ({task}) => {
     }
 
     const onClickSelectedTask = task => {
-        console.log(task);
         saveCurrentSelectedTask(task);
     }
 

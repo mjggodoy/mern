@@ -1,15 +1,24 @@
-import React, {Fragment, useState, useContext} from 'react';
+import React, {Fragment, useState, useContext, useEffect} from 'react';
 import ProjectContext from '../../context/projectos/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
 import {v4 as uuid} from 'uuid';
 
 const TaskForm = () => {
-    const projectsContext = useContext(ProjectContext);
-    const {project} = projectsContext;
-
-    const taskContext = useContext(TaskContext);
-    const {addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId} = taskContext;
+    const {project} = useContext(ProjectContext);
+    const {selectedTask, addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId} = useContext(TaskContext);
     
+    useEffect(() => {
+        if (selectedTask !== null) {
+            saveNewTask(selectedTask);
+        } else {
+            saveNewTask({
+                name : "", 
+                id: "",
+                projectId: ""
+            })
+        }
+    }, [selectedTask]);
+
     const [newTask, saveNewTask] = useState({
         name : "", 
         id: "",
@@ -58,7 +67,9 @@ const TaskForm = () => {
                         </input>
                     </div>
                     <div className="container-input">
-                        <input type="submit" className="btn btn-primary btn-block" value="Add new task!"></input>
+                        <input type="submit" className="btn btn-primary btn-block" 
+                            value={selectedTask ? 'Edit a task!' : 'Add a new task!' }>
+                        </input>
                     </div>
                 </form> : null}
                 {errorTaskForm ? <p className="message error errorTask">The task name is required</p> : null}
