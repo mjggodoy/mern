@@ -10,7 +10,6 @@ const TaskList = () => {
 
     const taskContext = useContext(TaskContext);
     const {tasksByProject} = taskContext;
-
     if (project === null) {
         return <h2>Select a project</h2>;
     }
@@ -33,7 +32,7 @@ const TaskList = () => {
                         timeout={100}
                         className="task"
                     >
-                        <Task task = {task} />
+                        <Task task = {task} key={task.id}/>
                     </CSSTransition>
                 ))}
                 </TransitionGroup>

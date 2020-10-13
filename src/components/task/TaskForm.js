@@ -5,7 +5,7 @@ import {v4 as uuid} from 'uuid';
 
 const TaskForm = () => {
     const {project} = useContext(ProjectContext);
-    const {selectedTask, addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId} = useContext(TaskContext);
+    const {selectedTask, addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId, updateOrModifyTask} = useContext(TaskContext);
     
     useEffect(() => {
         if (selectedTask !== null) {
@@ -44,11 +44,15 @@ const TaskForm = () => {
             validateTaskForm();
             return;
         }
-        newTask.projectId = currentProject.id;
-        newTask.status = "in progress";
-        newTask.id = uuid();
-        
-        addNewTask(newTask);
+
+        if (selectedTask === null) {
+            newTask.projectId = currentProject.id;
+            newTask.status = "in progress";
+            newTask.id = uuid();
+            addNewTask(newTask);
+        } else {
+            updateOrModifyTask(newTask);
+        }
         saveNewTask({name:''});
         getTasksByProjectId(currentProject.id); 
     }
