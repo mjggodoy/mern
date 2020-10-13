@@ -14,10 +14,10 @@ const Task = ({task}) => {
     }
     
     const onClickChangeStatusTask = task => {
-        if (task.status === 'in progress') {
-            task.status = 'completed';
-        } else if (task.status === 'completed') {
-            task.status = 'closed';
+        if (task.status === 'In progress') {
+            task.status = 'Completed';
+        } else if (task.status === 'Completed') {
+            task.status = 'Closed';
         }
         changeStatusTask(task);
         getTasksByProjectId(currentProject.id);
@@ -31,7 +31,7 @@ const Task = ({task}) => {
         <li className="task shadow">
             <p>{task.name}</p>
             <div className="status" onClick={() => onClickChangeStatusTask(task)}>
-                {task.status !== "closed" 
+                {task.status !== "Closed" 
                     ? <button className="complete">{task.status}</button> 
                     : <button className="incomplete">{task.status}</button>
                 }  

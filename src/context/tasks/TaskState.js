@@ -16,18 +16,18 @@ import {
 
 const TaskState =  props => {
     const tasks = [
-        {name : "Task1", id: "1", status: "completed", projectId: "1"}, 
-        {name : "Task2", id: "2", status: "closed", projectId: "3"},
-        {name : "Task3", id: "3", status: "in progress", projectId: "4"},
-        {name : "Task1", id: "4", status: "completed", projectId: "5"}, 
-        {name : "Task2", id: "5", status: "closed", projectId: "3"},
-        {name : "Task1", id: "6", status: "completed", projectId: "5"}, 
-        {name : "Task2", id: "7", status: "closed", projectId: "3"},
-        {name : "Task1", id: "8", status: "completed", projectId: "1"}, 
-        {name : "Task2", id: "9", status: "closed", projectId: "4"},
-        {name : "Task1", id: "10", status: "in progress", projectId: "5"}, 
-        {name : "Task2", id: "11", status: "closed", projectId: "3"},
-        {name : "Task30", id: "12", status: "completed", projectId: "2"}, 
+        {name : "Task1", id: "1", status: "Completed", projectId: "1"}, 
+        {name : "Task2", id: "2", status: "Closed", projectId: "3"},
+        {name : "Task3", id: "3", status: "In progress", projectId: "4"},
+        {name : "Task1", id: "4", status: "Completed", projectId: "5"}, 
+        {name : "Task2", id: "5", status: "Closed", projectId: "3"},
+        {name : "Task1", id: "6", status: "Completed", projectId: "5"}, 
+        {name : "Task2", id: "7", status: "Closed", projectId: "3"},
+        {name : "Task1", id: "8", status: "Completed", projectId: "1"}, 
+        {name : "Task2", id: "9", status: "Closed", projectId: "4"},
+        {name : "Task1", id: "10", status: "In progress", projectId: "5"}, 
+        {name : "Task2", id: "11", status: "Closed", projectId: "3"},
+        {name : "Task30", id: "12", status: "Completed", projectId: "2"}, 
     ];
 
     const initialState = {
@@ -90,7 +90,7 @@ const TaskState =  props => {
 
     const cleanSelectedTask = task => {
         dispatch({
-            type:  CLEAN_SELECTED_TASK,
+            type: CLEAN_SELECTED_TASK,
             payload: task
         });
     }

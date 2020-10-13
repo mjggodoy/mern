@@ -46,7 +46,7 @@ const TaskForm = () => {
 
         if (selectedTask === null) {
             newTask.projectId = currentProject.id;
-            newTask.status = "in progress";
+            newTask.status = "In progress";
             addNewTask(newTask);
         } else {
             updateOrModifyTask(newTask);
