@@ -23,6 +23,8 @@ const TaskState =  props => {
         {name : "Task2", id: "9", status: "closed", projectId: "4"},
         {name : "Task1", id: "10", status: "in progress", projectId: "5"}, 
         {name : "Task2", id: "11", status: "closed", projectId: "3"},
+        {name : "Task30", id: "12", status: "completed", projectId: "2"}, 
+
     ];
 
     const initialState = {

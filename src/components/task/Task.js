@@ -17,6 +17,7 @@ const Task = ({task}) => {
             task.status = 'closed';
         }
         changeStatusTask(task);
+        getTasksByProjectId(task.projectId);
     }
 
     return (

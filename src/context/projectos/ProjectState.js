@@ -13,6 +13,7 @@ import {v4 as uuid} from 'uuid';
 const ProjectState =  props => {
     const projects = [
         {projectName : "Intranet", id : "1"}, 
+        {projectName : "Project Maria2", id : "2"},
         {projectName : "Project Maria", id : "3"},
         {projectName : "Incasso", id : "4"},
         {projectName: "Test project", id: "5"}
