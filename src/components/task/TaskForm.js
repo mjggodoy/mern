@@ -5,7 +5,7 @@ import {v4 as uuid} from 'uuid';
 
 const TaskForm = () => {
     const {project} = useContext(ProjectContext);
-    const {selectedTask, addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId, updateOrModifyTask} = useContext(TaskContext);
+    const {selectedTask, cleanSelectedTask, addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId, updateOrModifyTask} = useContext(TaskContext);
     
     useEffect(() => {
         if (selectedTask !== null) {
@@ -52,6 +52,8 @@ const TaskForm = () => {
             addNewTask(newTask);
         } else {
             updateOrModifyTask(newTask);
+            console.log(selectedTask);
+            cleanSelectedTask(selectedTask)
         }
         saveNewTask({name:''});
         getTasksByProjectId(currentProject.id); 
