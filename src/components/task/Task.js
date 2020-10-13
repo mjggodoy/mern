@@ -1,13 +1,18 @@
 import React, {useContext} from 'react';
 import TaskContext from '../../context/tasks/TaskContext';
+import ProjectContext from '../../context/projectos/ProjectContext';
 
 const Task = ({task}) => {
     const taskContext = useContext(TaskContext);
     const {deleteTask, getTasksByProjectId, changeStatusTask} = taskContext;
-
+    
+    const projectsContext = useContext(ProjectContext);
+    const {project} = projectsContext;
+    const [currentProject] = project;
+    
     const onClickDeleteTask = () => {
         deleteTask(task.id);
-        getTasksByProjectId(task.projectId);
+        getTasksByProjectId(currentProject.id);
     }
 
     const onClickChangeStatusTask = task => {
@@ -17,7 +22,7 @@ const Task = ({task}) => {
             task.status = 'closed';
         }
         changeStatusTask(task);
-        getTasksByProjectId(task.projectId);
+        getTasksByProjectId(currentProject.id);
     }
 
     return (
