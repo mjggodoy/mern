@@ -29,15 +29,17 @@ export default (state, action) => {
             return {
                 ...state,
                 tasks: state.tasks.filter(task => 
-                task.id !== action.payload),
+                task.id !== action.payload)
             }
         case STATUS_TASK:
+            console.log(state.tasksByProject);
             return {
                 ...state,
-                tasks: state.tasks.map(task =>
+                tasksByProject: state.tasksByProject.map(task =>
                     task.id === action.payload.id ? action.payload : task
                 )
             }
+            
         default: 
             return state;
     }
