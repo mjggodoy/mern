@@ -31,9 +31,11 @@ const Task = ({task}) => {
         <li className="task shadow">
             <p>{task.name}</p>
             <div className="status" onClick={() => onClickChangeStatusTask(task)}>
-                {task.status !== "Closed" 
+                {task.status == "Completed" 
                     ? <button className="complete">{task.status}</button> 
-                    : <button className="incomplete">{task.status}</button>
+                    : task.status == "Closed" 
+                    ? <button className="incomplete">{task.status}</button>
+                    : <button className="inprogress">{task.status}</button> 
                 }  
             </div>
             <div className="actions">

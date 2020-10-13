@@ -238,11 +238,15 @@ aside  {
 }
 .complete,
 .correct {
-  background-color: rgba(72, 187, 72, 0.3);
+  background-color: rgba(64, 184, 64, 0.3);
   color: var(--gris3);
 }
 .incomplete{
-  background-color: rgba(255, 178, 178, .4);
+  background-color: rgba(255, 178, 178, 0.4);
+  color: var(--gris3);
+}
+.inprogress{
+  background-color: rgba(245, 231, 28, .4);
   color: var(--gris3);
 }
 .error {
