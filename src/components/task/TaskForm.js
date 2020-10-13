@@ -15,8 +15,7 @@ const TaskForm = () => {
                 name : "", 
                 id: "",
                 projectId: ""
-            })
-        }
+            })}
     }, [selectedTask]);
 
     const [newTask, saveNewTask] = useState({
