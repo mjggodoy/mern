@@ -7,7 +7,8 @@ import {
     ADD_NEW_TASK,
     VALIDATE_TASK_FORM,
     DELETE_TASK,
-    STATUS_TASK
+    STATUS_TASK,
+    CURRENT_TASK
 } from './../../types';
 
 const TaskState =  props => {
@@ -24,13 +25,13 @@ const TaskState =  props => {
         {name : "Task1", id: "10", status: "in progress", projectId: "5"}, 
         {name : "Task2", id: "11", status: "closed", projectId: "3"},
         {name : "Task30", id: "12", status: "completed", projectId: "2"}, 
-
     ];
 
     const initialState = {
         tasks: tasks,
         tasksByProject: null,
         errorTaskForm: false,
+        selectedTask: null
     }
 
     const [state, dispatch] = useReducer(TaskReducer, initialState);
@@ -69,17 +70,26 @@ const TaskState =  props => {
         });
     }
 
+    const saveCurrentSelectedTask = task => {
+        dispatch({
+            type: CURRENT_TASK,
+            payload: task
+        });
+    }
+
     return(
         <TaskContext.Provider
             value = {{
                 tasks : state.tasks,
                 errorTaskForm: state.errorTaskForm,
                 tasksByProject: state.tasksByProject,
+                selectedTask: state.selectedTask,
                 getTasksByProjectId,
                 addNewTask,
                 validateTaskForm,
                 deleteTask,
-                changeStatusTask
+                changeStatusTask,
+                saveCurrentSelectedTask
             }}>
             {props.children}
         </TaskContext.Provider>

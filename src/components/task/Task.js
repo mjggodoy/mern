@@ -4,7 +4,7 @@ import ProjectContext from '../../context/projectos/ProjectContext';
 
 const Task = ({task}) => {
     const taskContext = useContext(TaskContext);
-    const {deleteTask, getTasksByProjectId, changeStatusTask} = taskContext;
+    const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = taskContext;
     
     const projectsContext = useContext(ProjectContext);
     const {project} = projectsContext;
@@ -14,7 +14,7 @@ const Task = ({task}) => {
         deleteTask(task.id);
         getTasksByProjectId(currentProject.id);
     }
-
+    
     const onClickChangeStatusTask = task => {
         if (task.status === 'in progress') {
             task.status = 'completed';
@@ -23,6 +23,11 @@ const Task = ({task}) => {
         }
         changeStatusTask(task);
         getTasksByProjectId(currentProject.id);
+    }
+
+    const onClickSelectedTask = task => {
+        console.log(task);
+        saveCurrentSelectedTask(task);
     }
 
     return (
@@ -35,7 +40,7 @@ const Task = ({task}) => {
                 }  
             </div>
             <div className="actions">
-                <button type="button" className="btn btn-primary" onClick={() => onClickChangeStatusTask(task)}>Edit</button>
+                <button type="button" className="btn btn-primary" onClick={() => onClickSelectedTask(task)}>Edit</button>
                 <button type="button" className="btn btn-secondary" onClick={onClickDeleteTask}>Delete Task &times;</button>
             </div>
         </li>
