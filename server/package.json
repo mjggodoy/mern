@@ -19,5 +19,8 @@
   "homepage": "https://github.com/mjggodoy/mern#readme",
   "devDependencies": {
     "nodemon": "^2.0.5"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
   }
 }
