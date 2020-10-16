@@ -9,7 +9,6 @@ exports.createUser = async (req, res) => {
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
-
     const {email, password} = req.body;
     try {
         const userEmail = await User.findOne({email});
@@ -26,17 +25,17 @@ exports.createUser = async (req, res) => {
                 id: user.id
             }
         };
-
         // expiresIn -> the user toke expires in 3 hours (the time is in seconds)
         jsonwebtoken.sign(payload, process.env.SECRET, {expiresIn: 648000}, 
             (error, token) => {
                 if (error) {
+                    console.error(error);
                     throw error;
                 }
                 return res.send({token});
             });
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return res.status(400).send('There was an error');
     }
 }

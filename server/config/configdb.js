@@ -2,7 +2,6 @@ const moongose = require('mongoose');
 require('dotenv').config({path: 'variables.env'});
 
 const connectDB = async() => {
-    console.log(process.env.DB_MONGO);
     try {
         await moongose.connect(process.env.DB_MONGO, { 
             useNewUrlParser: true,
