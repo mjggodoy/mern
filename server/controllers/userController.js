@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator');
+const jsonwebtoken = require('jsonwebtoken');
+require('dotenv').config({path: 'variables.env'});
 
 exports.createUser = async (req, res) => {
     const errors = validationResult(req);
@@ -17,9 +19,22 @@ exports.createUser = async (req, res) => {
         let user = new User(req.body);
         const salt = await bcryptjs.genSalt(10);
         user.password = await bcryptjs.hash(password, salt);
-
         await user.save();
-        return res.send('User has been successfully created');
+       
+        const payload = {
+            user : {
+                id: user.id
+            }
+        };
+
+        // expiresIn -> the user toke expires in 3 hours (the time is in seconds)
+        jsonwebtoken.sign(payload, process.env.SECRET, {expiresIn: 648000}, 
+            (error, token) => {
+                if (error) {
+                    throw error;
+                }
+                return res.send({token});
+            });
     } catch (error) {
         console.log(error);
         return res.status(400).send('There was an error');
