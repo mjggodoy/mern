@@ -8,7 +8,7 @@ const Project = ({project}) => {
 
     const tasksContext = useContext(TaskContext);
     const {getTasksByProjectId} = tasksContext;
-    
+
     const onClickselectedProject = () => {
         selectedCurrentProjectByUser(project.id);
         getTasksByProjectId(project.id);

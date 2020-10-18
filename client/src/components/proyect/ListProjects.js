@@ -6,7 +6,7 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 const ListProjects = () => {
     const projectsContext = useContext(ProjectContext);
     const {projects, getProjects} = projectsContext;
-    
+
     useEffect(() => {
         getProjects();
     }, []);

@@ -4,7 +4,6 @@ import ProjectContext from '../../context/projectos/ProjectContext';
 
 const Task = ({task}) => {
     const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
-    
     const {project} = useContext(ProjectContext);
     const [currentProject] = project;
     
@@ -12,7 +11,7 @@ const Task = ({task}) => {
         deleteTask(task.id);
         getTasksByProjectId(currentProject.id);
     }
-    
+
     const onClickChangeStatusTask = task => {
         if (task.status === 'In progress') {
             task.status = 'Completed';

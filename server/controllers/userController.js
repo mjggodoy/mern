@@ -9,7 +9,7 @@ exports.createUser = async (req, res) => {
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
-    
+
     const {email, password} = req.body;
     try {
         const userEmail = await User.findOne({email});
@@ -21,7 +21,7 @@ exports.createUser = async (req, res) => {
         const salt = await bcryptjs.genSalt(10);
         user.password = await bcryptjs.hash(password, salt);
         await user.save();
-       
+
         const payload = {
             user : {
                 id: user.id
