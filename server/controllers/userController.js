@@ -9,12 +9,14 @@ exports.createUser = async (req, res) => {
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
+    
     const {email, password} = req.body;
     try {
         const userEmail = await User.findOne({email});
         if (userEmail) {
-            return res.status(400).send('User already exists');
+            return res.status(400).json({msg: 'User already exists'});
         }
+        
         let user = new User(req.body);
         const salt = await bcryptjs.genSalt(10);
         user.password = await bcryptjs.hash(password, salt);
