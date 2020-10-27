@@ -6,9 +6,14 @@ const {check} = require('express-validator');
 
 router.post('/',
     authentication,
-    [ 
+    [
         check('projectName', 'The project name is mandatory').notEmpty()
     ],
     projectController.createProject
+)
+
+router.get('/',
+    authentication,
+    projectController.getProjects
 );
 module.exports = router;
