@@ -1,5 +1,6 @@
 const Project = require('../models/Project');
 const {validationResult} = require('express-validator');
+var ObjectId = require('mongodb').ObjectID;
 
 // Request to create a project
 exports.createProject = async (req, res) => {
@@ -17,6 +18,7 @@ exports.createProject = async (req, res) => {
         return res.status(500).send('There was an error');
     }
 }
+
 // Request to retrieve a project
 exports.getProjects = async (req, res) => { 
     if (req.user == null && res.user.id == null) {
@@ -26,6 +28,39 @@ exports.getProjects = async (req, res) => {
         const userId = req.user.id;
         let projectsFromUser = await Project.find({projectCreator: userId}).sort({projectDate: -1});
         res.json({projectsFromUser});
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('There was an error');
+    }     
+}
+
+// Request to update a project
+exports.updateProjects = async (req, res) => { 
+    if (req.user == null && res.user.id == null) {
+        return res.status(500).json({msg: 'user has not authentication token'});
+    }
+
+    let projectName = {};
+    if (req.body != null) {
+        projectName.projectName = await req.body.projectName;
+    }
+
+    try {
+        let projectId = req.params.id;
+        const projectIdMaxLengthAllowed = 24;
+        if (projectId.length != projectIdMaxLengthAllowed) {
+            return res.status(404).json({msg: 'This project id is not correct'});
+        } 
+        let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
+        if (!projectsFromRequestParameter) {
+            return res.status(404).json({msg: 'This project has not been found'});
+        }
+
+        if (projectsFromRequestParameter != null && projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
+            return res.status(401).json({msg: 'User not authorized'});
+        }
+        projectsFromRequestParameter = await Project.findByIdAndUpdate({_id: projectId}, {$set: projectName}, {new: true});
+        return res.json({projectsFromRequestParameter});
     } catch (error) {
         console.error(error);
         return res.status(500).send('There was an error');
