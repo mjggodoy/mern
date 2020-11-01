@@ -2,7 +2,7 @@ const Project = require('../models/Project');
 const {validationResult} = require('express-validator');
 var ObjectId = require('mongodb').ObjectID;
 
-// Request to create a project
+// Request to create a project related to a user (token -> go to auth)
 exports.createProject = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -19,7 +19,7 @@ exports.createProject = async (req, res) => {
     }
 }
 
-// Request to retrieve a project
+// Request to retrieve a project by user id
 exports.getProjects = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});
@@ -34,7 +34,7 @@ exports.getProjects = async (req, res) => {
     }     
 }
 
-// Request to update a project
+// Request to update a project by project id
 exports.updateProjects = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});
@@ -66,7 +66,7 @@ exports.updateProjects = async (req, res) => {
         return res.status(500).send('There was an error');
     }     
 }
-
+// Request to delete a project by project id
 exports.deleteProject = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});
