@@ -88,8 +88,7 @@ exports.deleteProject = async (req, res) => {
             return res.status(404).json({msg: 'This project has not been found'});
         }
         projectsFromRequestParameter = await Project.findByIdAndDelete({_id: projectId});
-        return res.json({msg: `The project with name ${projectsFromRequestParameter.projectName} has been deleted`});
- 
+        return res.json({msg: `The project with name ${projectsFromRequestParameter.projectName} has been succesfully deleted`});
     } catch (error) {
         console.error(error);
         return res.status(500).send('There was an error');
