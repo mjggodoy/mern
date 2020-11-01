@@ -12,6 +12,11 @@ router.post('/',
     projectController.createProject
 )
 
+router.get('/',
+    authentication,
+    projectController.getProjects
+)
+
 router.put('/:id',
     authentication,
     [
@@ -19,11 +24,6 @@ router.put('/:id',
     ],
     projectController.updateProjects,
 );
-
-router.get('/',
-    authentication,
-    projectController.getProjects
-)
 
 router.delete('/:id',
     authentication,
