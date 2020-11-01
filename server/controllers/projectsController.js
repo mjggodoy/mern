@@ -66,6 +66,7 @@ exports.updateProjects = async (req, res) => {
         return res.status(500).send('There was an error');
     }     
 }
+
 // Request to delete a project by project id
 exports.deleteProject = async (req, res) => {
     if (req.user == null && res.user.id == null) {
