@@ -40,10 +40,14 @@ exports.updateProjects = async (req, res) => {
         return res.status(500).json({msg: 'user has not authentication token'});
     }
 
-    let projectName = {};
+    let project = {};
     if (req.body != null) {
-        projectName.projectName = await req.body.projectName;
+        project.projectName = await req.body.projectName;
     }
+
+    if (project.projectName == null) {
+        return res.status(404).json({msg: 'This project name is not correct'});
+    } 
 
     try {
         let projectId = req.params.id;
@@ -59,7 +63,7 @@ exports.updateProjects = async (req, res) => {
         if (projectsFromRequestParameter != null && projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
             return res.status(401).json({msg: 'User not authorized'});
         }
-        projectsFromRequestParameter = await Project.findByIdAndUpdate({_id: projectId}, {$set: projectName}, {new: true});
+        projectsFromRequestParameter = await Project.findByIdAndUpdate({_id: projectId}, {$set: project}, {new: true});
         return res.json({projectsFromRequestParameter});
     } catch (error) {
         console.error(error);
