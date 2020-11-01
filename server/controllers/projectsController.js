@@ -49,7 +49,7 @@ exports.updateProjects = async (req, res) => {
         let projectId = req.params.id;
         const projectIdMaxLengthAllowed = 24;
         if (projectId.length != projectIdMaxLengthAllowed) {
-            return res.status(404).json({msg: 'This project id is not correct'});
+            return res.status(401).json({msg: 'This project id is not correct'});
         }
         let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
         if (!projectsFromRequestParameter) {
@@ -76,7 +76,7 @@ exports.deleteProject = async (req, res) => {
         let projectId = req.params.id;
         const projectIdMaxLengthAllowed = 24;
         if (projectId.length != projectIdMaxLengthAllowed) {
-            return res.status(404).json({msg: 'This project id is not correct'});
+            return res.status(401).json({msg: 'This project id is not correct'});
         }
         let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
         if (!projectsFromRequestParameter) {
