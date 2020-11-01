@@ -1,12 +1,12 @@
 const Project = require('../models/Project');
 const {validationResult} = require('express-validator');
 
+// Request to create a project
 exports.createProject = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
-
     try {
         const project = new Project(req.body);
         project.projectCreator = req.user.id;
@@ -17,7 +17,7 @@ exports.createProject = async (req, res) => {
         return res.status(500).send('There was an error');
     }
 }
-
+// Request to retrieve a project
 exports.getProjects = async (req, res) => { 
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});

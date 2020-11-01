@@ -4,6 +4,7 @@ const {validationResult} = require('express-validator');
 const jsonwebtoken = require('jsonwebtoken');
 require('dotenv').config({path: 'variables.env'});
 
+// Verify authentication of a user
 exports.authUser = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
