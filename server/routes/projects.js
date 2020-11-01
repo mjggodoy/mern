@@ -22,12 +22,12 @@ router.put('/:id',
 
 router.get('/',
     authentication,
-    projectController.getProjects,
+    projectController.getProjects
 )
 
 router.delete('/:id',
     authentication,
-    projectController.deleteProject,
+    projectController.deleteProject
 )
 
 module.exports = router;

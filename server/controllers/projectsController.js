@@ -20,7 +20,7 @@ exports.createProject = async (req, res) => {
 }
 
 // Request to retrieve a project
-exports.getProjects = async (req, res) => { 
+exports.getProjects = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});
     }
@@ -67,7 +67,7 @@ exports.updateProjects = async (req, res) => {
     }     
 }
 
-exports.deleteProject = async (req, res) => { 
+exports.deleteProject = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});
     }
