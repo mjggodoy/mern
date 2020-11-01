@@ -25,5 +25,9 @@ router.get('/',
     projectController.getProjects,
 )
 
+router.delete('/:id',
+    authentication,
+    projectController.deleteProject,
+)
 
 module.exports = router;

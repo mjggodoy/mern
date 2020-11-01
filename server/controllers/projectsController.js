@@ -35,7 +35,7 @@ exports.getProjects = async (req, res) => {
 }
 
 // Request to update a project
-exports.updateProjects = async (req, res) => { 
+exports.updateProjects = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});
     }
@@ -50,7 +50,7 @@ exports.updateProjects = async (req, res) => {
         const projectIdMaxLengthAllowed = 24;
         if (projectId.length != projectIdMaxLengthAllowed) {
             return res.status(404).json({msg: 'This project id is not correct'});
-        } 
+        }
         let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
         if (!projectsFromRequestParameter) {
             return res.status(404).json({msg: 'This project has not been found'});
@@ -65,4 +65,29 @@ exports.updateProjects = async (req, res) => {
         console.error(error);
         return res.status(500).send('There was an error');
     }     
+}
+
+exports.deleteProject = async (req, res) => { 
+    if (req.user == null && res.user.id == null) {
+        return res.status(500).json({msg: 'user has not authentication token'});
+    }
+
+    try {
+        let projectId = req.params.id;
+        const projectIdMaxLengthAllowed = 24;
+        if (projectId.length != projectIdMaxLengthAllowed) {
+            return res.status(404).json({msg: 'This project id is not correct'});
+        }
+        let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
+        if (!projectsFromRequestParameter) {
+            return res.status(404).json({msg: 'This project has not been found'});
+        }
+        projectsFromRequestParameter = await Project.findByIdAndDelete({_id: projectId});
+        return res.json({msg: `The project with name ${projectsFromRequestParameter.projectName} has been deleted`});
+ 
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('There was an error');
+    }     
+
 }
