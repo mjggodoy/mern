@@ -1,6 +1,6 @@
 const Task = require('../models/Task');
 const Project = require('../models/Project');
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 var ObjectId = require('mongodb').ObjectID;
 
 // Request to create a new task
