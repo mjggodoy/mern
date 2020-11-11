@@ -28,7 +28,7 @@ exports.createUser = async (req, res) => {
                 id: user.id
             }
         };
-        // expiresIn -> the user toke expires in 3 hours (the time is in seconds)
+        // expiresIn -> the user toke expires in 3 hours (the time is measured in seconds)
         jsonwebtoken.sign(payload, process.env.SECRET, {expiresIn: 648000}, 
             (error, token) => {
                 if (error) {
