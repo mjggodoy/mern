@@ -26,7 +26,7 @@ exports.createTask = async (req, res) => {
             return res.status(401).json({msg: 'This project has not been found'});
         }
 
-        if (projectsFromRequestParameter != null && projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
+        if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
             return res.status(401).json({msg: 'User not authorized'});
         }
 
@@ -40,7 +40,6 @@ exports.createTask = async (req, res) => {
 }
 
 exports.getTasksByProject = async (req, res) => {
-    
     try {
         let projectId = req.body.projectId;
         if (projectId == null) {
@@ -57,7 +56,7 @@ exports.getTasksByProject = async (req, res) => {
             return res.status(401).json({msg: 'This project has not been found'});
         }
 
-        if (projectsFromRequestParameter != null && projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
+        if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
             return res.status(401).json({msg: 'User not authorized'});
         }
 
