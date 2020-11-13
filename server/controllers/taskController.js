@@ -13,7 +13,7 @@ exports.createTask = async (req, res) => {
     try {
         let projectId = req.body.projectId;
         if (projectId == null) {
-            return res.status(401).json({msg: 'The body is empty. Please introduce the projectid of a project'});
+            return res.status(401).json({msg: 'The body is empty. Please introduce the projectid'});
         }
 
         const projectIdMaxLengthAllowed = 24;
@@ -27,7 +27,7 @@ exports.createTask = async (req, res) => {
         }
 
         if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
-            return res.status(401).json({msg: 'User not authorized'});
+            return res.status(401).json({msg: 'User is not authorized'});
         }
 
         const task = new Task(req.body);
@@ -43,7 +43,7 @@ exports.getTasksByProject = async (req, res) => {
     try {
         let projectId = req.body.projectId;
         if (projectId == null) {
-            return res.status(401).json({msg: 'The body is empty. Please introduce the projectid of a project'});
+            return res.status(401).json({msg: 'The body is empty. Please, introduce the project id'});
         }
 
         const projectIdMaxLengthAllowed = 24;
@@ -57,7 +57,7 @@ exports.getTasksByProject = async (req, res) => {
         }
 
         if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
-            return res.status(401).json({msg: 'User not authorized'});
+            return res.status(401).json({msg: 'User is not authorized'});
         }
 
         let taskByProjectId = await Task.find({projectId: projectId});
