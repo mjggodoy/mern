@@ -35,3 +35,24 @@ exports.createTask = async (req, res) => {
         return res.status(500).send('There was an error');
     }
 }
+
+exports.getTasksByProject = async (req, res) => {
+    try {
+        let projectId = req.body.projectId;
+        const projectIdMaxLengthAllowed = 24;
+
+        if (projectId.length != projectIdMaxLengthAllowed) {
+            return res.status(401).json({msg: 'This project id is not correct'});
+        }
+
+        let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
+        if (projectsFromRequestParameter == null) {
+            return res.status(401).json({msg: 'This project has not been found'});
+        }
+        let taskByProjectId = await Task.find({projectId: projectId});
+        return res.json({taskByProjectId});
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('There was an error');
+    }
+}

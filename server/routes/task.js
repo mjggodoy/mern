@@ -11,5 +11,8 @@ router.post('/',
         check('name', 'The task name is mandatory').notEmpty()
     ],
     taskController.createTask
-);
+),
+router.get('/',
+    taskController.getTasksByProject
+)
 module.exports = router;
