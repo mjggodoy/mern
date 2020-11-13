@@ -13,6 +13,7 @@ router.post('/',
     taskController.createTask
 ),
 router.get('/',
+    authentication,
     taskController.getTasksByProject
 )
 module.exports = router;

@@ -56,6 +56,11 @@ exports.getTasksByProject = async (req, res) => {
         if (projectsFromRequestParameter == null) {
             return res.status(401).json({msg: 'This project has not been found'});
         }
+
+        if (projectsFromRequestParameter != null && projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
+            return res.status(401).json({msg: 'User not authorized'});
+        }
+
         let taskByProjectId = await Task.find({projectId: projectId});
         return res.json({taskByProjectId});
     } catch (error) {
