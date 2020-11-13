@@ -16,4 +16,9 @@ router.get('/',
     authentication,
     taskController.getTasksByProject
 )
+
+router.put('/:id',
+    authentication,
+    taskController.updateTask
+)
 module.exports = router;

@@ -39,7 +39,12 @@ exports.createTask = async (req, res) => {
     }
 }
 
+// Request to retrieve a task by project
 exports.getTasksByProject = async (req, res) => {
+    if (req.user == null && res.user.id == null) {
+        return res.status(500).json({msg: 'user has not authentication token'});
+    }
+
     try {
         let projectId = req.body.projectId;
         if (projectId == null) {
@@ -62,6 +67,51 @@ exports.getTasksByProject = async (req, res) => {
 
         let taskByProjectId = await Task.find({projectId: projectId});
         return res.json({taskByProjectId});
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('There was an error');
+    }
+}
+
+// Request to update a task by taskid
+exports.updateTask = async (req, res) => {
+    if (req.user == null && res.user.id == null) {
+        return res.status(500).json({msg: 'user has not authentication token'});
+    }
+    try {
+        let task = {};
+        if (req.body != null) {
+            task.name = await req.body.name;
+            if (task.name == null) {
+                return res.status(404).json({msg: 'This project name is not correct'});
+            }
+            task.projectId = await req.body.projectId;
+            if (task.projectId == null) {
+                return res.status(404).json({msg: 'This project id is not correct'});
+            } 
+            task.status = await req.body.status;
+            if (task.status == null) {
+                return res.status(404).json({msg: 'This task status is not correct'});
+            } 
+        }
+
+        let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(task.projectId)});
+        if (projectsFromRequestParameter == null) {
+            return res.status(401).json({msg: 'This project has not been found'});
+        }
+
+        if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
+            return res.status(401).json({msg: 'User is not authorized'});
+        }
+
+        let taskId = await req.params;
+        let taskById = await Task.find({_id: ObjectId(taskId.id)});
+        if (taskById == null) {
+            return res.status(401).json({msg: 'This task has not been found'});
+        }
+
+        taskById = await Task.findByIdAndUpdate({_id: taskId.id}, {$set: task}, {new: true});
+        return res.json({taskById});
     } catch (error) {
         console.error(error);
         return res.status(500).send('There was an error');
