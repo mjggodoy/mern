@@ -11,6 +11,5 @@ router.post('/',
         check('name', 'The task name is mandatory').notEmpty()
     ],
     taskController.createTask
-)
-
+);
 module.exports = router;

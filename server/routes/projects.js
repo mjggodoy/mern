@@ -23,7 +23,7 @@ router.put('/:id',
         check('projectName', 'The project name is mandatory').notEmpty()
     ],
     projectController.updateProjects,
-);
+)
 
 router.delete('/:id',
     authentication,
