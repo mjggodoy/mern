@@ -12,8 +12,11 @@ exports.createTask = async (req, res) => {
 
     try {
         let projectId = req.body.projectId;
-        const projectIdMaxLengthAllowed = 24;
+        if (projectId == null) {
+            return res.status(401).json({msg: 'The body is empty. Please introduce the projectid of a project'});
+        }
 
+        const projectIdMaxLengthAllowed = 24;
         if (projectId.length != projectIdMaxLengthAllowed) {
             return res.status(401).json({msg: 'This project id is not correct'});
         }
@@ -37,10 +40,14 @@ exports.createTask = async (req, res) => {
 }
 
 exports.getTasksByProject = async (req, res) => {
+    
     try {
         let projectId = req.body.projectId;
-        const projectIdMaxLengthAllowed = 24;
+        if (projectId == null) {
+            return res.status(401).json({msg: 'The body is empty. Please introduce the projectid of a project'});
+        }
 
+        const projectIdMaxLengthAllowed = 24;
         if (projectId.length != projectIdMaxLengthAllowed) {
             return res.status(401).json({msg: 'This project id is not correct'});
         }
