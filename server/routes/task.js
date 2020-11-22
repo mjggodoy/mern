@@ -11,7 +11,8 @@ router.post('/',
         check('name', 'The task name is mandatory').notEmpty()
     ],
     taskController.createTask
-),
+)
+
 router.get('/',
     authentication,
     taskController.getTasksByProject
@@ -20,5 +21,10 @@ router.get('/',
 router.put('/:id',
     authentication,
     taskController.updateTask
+)
+
+router.delete('/:id',
+    authentication,
+    taskController.deleteTask
 )
 module.exports = router;
