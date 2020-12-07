@@ -5,9 +5,11 @@ import NewUser from './components/auth/NewUser';
 import Projects from './components/project/Projects';
 import ProjectState from './context/projects/ProjectState';
 import TaskState from './context/tasks/TaskState';
+import AlertState from './context/alerts/AlertState';
 
 function App() {
   return (
+    <AlertState>
       <ProjectState>
         <TaskState>
         <Router>
@@ -19,6 +21,7 @@ function App() {
         </Router>
         </TaskState>
       </ProjectState>
+    </AlertState>
   );
 }
 export default App;
