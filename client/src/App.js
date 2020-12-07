@@ -2,8 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'; 
 import Login from './components/auth/Login';
 import NewUser from './components/auth/NewUser';
-import Projects from './components/proyect/Projects';
-import ProjectState from './context/projectos/ProjectState';
+import Projects from './components/project/Projects';
+import ProjectState from './context/projects/ProjectState';
 import TaskState from './context/tasks/TaskState';
 
 function App() {

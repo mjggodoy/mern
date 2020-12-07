@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import ProjectContext from '../../context/projectos/ProjectContext';
+import ProjectContext from '../../context/projects/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
 
 const Project = ({project}) => {

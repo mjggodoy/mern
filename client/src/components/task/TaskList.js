@@ -1,6 +1,6 @@
 import React, {Fragment, useContext} from 'react';
 import Task from './Task';
-import ProjectContext from '../../context/projectos/ProjectContext';
+import ProjectContext from '../../context/projects/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 

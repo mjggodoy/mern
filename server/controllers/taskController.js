@@ -78,6 +78,7 @@ exports.updateTask = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'user has not authentication token'});
     }
+
     try {
         let task = {};
         if (req.body != null) {

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import TaskContext from '../../context/tasks/TaskContext';
-import ProjectContext from '../../context/projectos/ProjectContext';
+import ProjectContext from '../../context/projects/ProjectContext';
 
 const Task = ({task}) => {
     const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
