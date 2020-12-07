@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Project from './Project';
 import ProjectContext from '../../context/projects/ProjectContext';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
@@ -11,7 +11,7 @@ const ListProjects = () => {
         getProjects();
     }, []);
 
-    if(projects.length === 0) {
+    if (projects.length === 0) {
         return <h3 className="no-projects">There are no projects, start creating one project!</h3>;
     }
 
