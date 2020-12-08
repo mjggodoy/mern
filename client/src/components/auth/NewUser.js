@@ -29,12 +29,12 @@ const NewUser = () => {
             showAlert(`All fields are mandatory`, `alert-error`);
         }
 
-        if (password.trim() != '' && password.length < maxNumberOfCharacters) {
+        if (password.trim() !== '' && password.length < maxNumberOfCharacters) {
             showAlert(`The password field must contain at least 6 characters`, `alert-error`);
         }
 
-        if (password != confirmUser) {
-            showAlert(`The two passwords must be equal`, `alert-error`);
+        if (password !== confirmUser) {
+            showAlert(`The two passwords must match`, `alert-error`);
         }
     }
 
