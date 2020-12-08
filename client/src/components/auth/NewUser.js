@@ -19,11 +19,23 @@ const NewUser = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        validateFields();  
+    }
 
+    const validateFields = () => {
+        const maxNumberOfCharacters = 6;
         if (userName.trim() === '' || email.trim()  === '' 
             || password.trim() === '' || confirmUser.trim() === '') {
             showAlert(`All fields are mandatory`, `alert-error`);
-        } 
+        }
+
+        if (password.trim() != '' && password.length < maxNumberOfCharacters) {
+            showAlert(`The password field must contain at least 6 characters`, `alert-error`);
+        }
+
+        if (password != confirmUser) {
+            showAlert(`The two passwords must be equal`, `alert-error`);
+        }
     }
 
     const {userName, email, password, confirmUser} = userInformation;
