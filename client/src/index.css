@@ -345,6 +345,7 @@ aside  {
 .alert-error {
   background-color: rgb(230, 78, 78);
   color: var(--blanco);
+  font-size: large;
 }
 .no-projects {
   color: #0e145f;
