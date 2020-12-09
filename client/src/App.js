@@ -9,6 +9,8 @@ import AlertState from './context/alerts/AlertState';
 import AuthState from './context/authentication/AuthState';
 
 function App() {
+  console.log(process.env.REACT_APP_URL_BACKEND);
+  
   return (
     <AuthState>
       <AlertState>
