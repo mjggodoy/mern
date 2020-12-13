@@ -2,7 +2,7 @@ import React, {useReducer} from 'react';
 import {USER_REGISTER_SUCCESS, USER_REGISTER_ERROR, USER_LOGOUT, USER_LOGIN_SUCCESS, GET_USER} from '../../types';
 import AuthContext from './AuthContext';
 import AuthReducer from './AuthReducer';
-import clientAxios from './../../config/axiosClient';
+import clientAxios from '../../config/axiosClient';
 
 const AuthState =  props => {
     const initialState = {
@@ -13,7 +13,7 @@ const AuthState =  props => {
     };
 
     const [state, dispatch] = useReducer(AuthReducer, initialState);
-    
+
     const registerUser = async data => {
         console.log(data);
         try {
@@ -23,15 +23,18 @@ const AuthState =  props => {
                 type: USER_REGISTER_SUCCESS,
                 payload: response
             });
-        } catch (error) {
-            console.log(error.response.data);
+        } catch(error) {
+            const alert = {
+                message : error.response.data.msg,
+                category: 'alert-error'
+            };
             dispatch({
                 type: USER_REGISTER_ERROR,
-                payload: error.response.data
+                payload: alert
             });
         }
     }
-
+    
     return(
         <AuthContext.Provider
             value = {{

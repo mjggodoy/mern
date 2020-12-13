@@ -6,20 +6,19 @@ export default (state, action) => {
             console.log('here', action.payload, action.payload.data.token);
             localStorage.setItem('token', action.payload.data.token);
             const token = localStorage.getItem('token');
-            
+
             return {
                  ...state,
                 isUserAuthenticated: true,
-                message: message,
+                message: null,
                 token : token
             }
         case USER_REGISTER_ERROR:
-            const message = action.payload.msg;
-            console.log(message);
+            console.log(action.payload.message);
             return {
                 ...state,
                isUserAuthenticated: false,
-               message: message,
+               message: action.payload.message,
                token: null
            }
         default: 
