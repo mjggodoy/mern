@@ -6,7 +6,7 @@ import AuthReducer from './AuthReducer';
 const AuthState =  props => {
     const initialState = {
         token : localStorage.getItem('token'),
-        isAuthenticated : null,
+        isUserAuthenticated : null,
         user : null,
         message : null
     };
@@ -17,7 +17,7 @@ const AuthState =  props => {
         <AuthContext.Provider
             value = {{
                 token : state.token,
-                isAuthenticated : state.isAuthenticated,
+                isAuthenticated : state.isUserAuthenticated,
                 user : state.user,
                 message : state.message
             }}
