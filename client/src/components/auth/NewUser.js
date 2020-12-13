@@ -1,9 +1,12 @@
 import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import AlertContext from './../../context/alerts/AlertContext';
+import AuthContext from './../../context/authentication/AuthContext';
 
 const NewUser = () => {
     const {alert, showAlert} = useContext(AlertContext);
+    const {registerUser} = useContext(AuthContext);
+    
     const [userInformation, saveUserInformation] = useState({
         userName : "",
         email : "", 
@@ -36,6 +39,7 @@ const NewUser = () => {
         if (password !== confirmUser) {
             showAlert(`The two passwords must match`, `alert-error`);
         }
+        registerUser({userName, email, password});
     }
 
     const {userName, email, password, confirmUser} = userInformation;
