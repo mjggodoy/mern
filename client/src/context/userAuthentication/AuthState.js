@@ -15,15 +15,14 @@ const AuthState =  props => {
     const [state, dispatch] = useReducer(AuthReducer, initialState);
 
     const registerUser = async data => {
-        console.log(data);
         try {
             const response = await clientAxios.post('api/users', data);
-            console.log(response);
             dispatch({
                 type: USER_REGISTER_SUCCESS,
                 payload: response
             });
         } catch(error) {
+            //console.log(error.response.data.msg);
             const alert = {
                 message : error.response.data.msg,
                 category: 'alert-error'
@@ -34,7 +33,7 @@ const AuthState =  props => {
             });
         }
     }
-    
+
     return(
         <AuthContext.Provider
             value = {{

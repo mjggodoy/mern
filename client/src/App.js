@@ -6,11 +6,9 @@ import Projects from './components/project/Projects';
 import ProjectState from './context/projects/ProjectState';
 import TaskState from './context/tasks/TaskState';
 import AlertState from './context/alerts/AlertState';
-import AuthState from './context/authentication/AuthState';
+import AuthState from './context/userAuthentication/AuthState';
 
-function App() {
-  console.log(process.env.REACT_APP_URL_BACKEND);
-  
+function App() {  
   return (
     <AuthState>
       <AlertState>
