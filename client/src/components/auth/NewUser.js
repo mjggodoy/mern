@@ -1,12 +1,23 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import AlertContext from './../../context/alerts/AlertContext';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
-const NewUser = () => {
+const NewUser = (props) => {
     const {alert, showAlert} = useContext(AlertContext);
-    const {registerUser} = useContext(AuthContext);
-    
+    const {registerUser, isAuthenticated, alertAuth} = useContext(AuthContext);
+    console.log(alertAuth.message, isAuthenticated);
+
+    useEffect(() => {
+        if(isAuthenticated) {
+            props.history.push('/projects')
+        }
+
+        if (!isAuthenticated && alertAuth.message) {
+            showAlert(alertAuth.message, alertAuth.category);
+        }
+    }, [alertAuth.message, isAuthenticated]);
+
     const [userInformation, saveUserInformation] = useState({
         userName : "",
         email : "", 

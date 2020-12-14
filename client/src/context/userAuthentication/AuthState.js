@@ -9,7 +9,7 @@ const AuthState =  props => {
         token : localStorage.getItem('token'),
         isUserAuthenticated : null,
         user : null,
-        message : null
+        alertAuth : {},
     };
 
     const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -22,14 +22,14 @@ const AuthState =  props => {
                 payload: response
             });
         } catch(error) {
-            //console.log(error.response.data.msg);
-            const alert = {
+            console.log(error.response.data.msg);
+            const alertAuth = {
                 message : error.response.data.msg,
                 category: 'alert-error'
             };
             dispatch({
                 type: USER_REGISTER_ERROR,
-                payload: alert
+                payload: alertAuth
             });
         }
     }
@@ -40,7 +40,7 @@ const AuthState =  props => {
                 token : state.token,
                 isAuthenticated : state.isUserAuthenticated,
                 user : state.user,
-                message : state.message,
+                alertAuth : state.alertAuth,
                 registerUser,
             }}
         >

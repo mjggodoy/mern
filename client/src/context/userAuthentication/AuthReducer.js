@@ -13,10 +13,14 @@ export default (state, action) => {
                 token : token
             }
         case USER_REGISTER_ERROR:
+            console.log(action.payload);
             return {
                 ...state,
                isUserAuthenticated: false,
-               message: action.payload.message,
+               alertAuth : {
+                   message: action.payload.message,
+                   category: action.payload.category
+               },
                token: null
            }
         default: 
