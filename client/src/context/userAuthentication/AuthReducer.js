@@ -5,7 +5,6 @@ export default (state, action) => {
         case USER_REGISTER_SUCCESS:
             localStorage.setItem('token', action.payload.data.token);
             const token = localStorage.getItem('token');
-            //console.log(error.response.data.msg);
             return {
                  ...state,
                 isUserAuthenticated: true,
@@ -13,7 +12,6 @@ export default (state, action) => {
                 token : token
             }
         case USER_REGISTER_ERROR:
-            console.log(action.payload);
             return {
                 ...state,
                isUserAuthenticated: false,

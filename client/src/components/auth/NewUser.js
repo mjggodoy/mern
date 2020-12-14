@@ -6,7 +6,6 @@ import AuthContext from '../../context/userAuthentication/AuthContext';
 const NewUser = (props) => {
     const {alert, showAlert} = useContext(AlertContext);
     const {registerUser, isAuthenticated, alertAuth} = useContext(AuthContext);
-    console.log(alertAuth.message, isAuthenticated);
 
     useEffect(() => {
         if(isAuthenticated) {
@@ -73,7 +72,6 @@ const NewUser = (props) => {
                             onChange={startSession}>
                         </input>
                     </div>
-
                      <div className="field-form">
                         <label htmlFor="email">Email:</label>
                         <input type="email" 
@@ -84,7 +82,6 @@ const NewUser = (props) => {
                             onChange={startSession}>
                         </input>
                     </div>
-                    
                     <div className="field-form">
                         <label htmlFor="password">Password:</label>
                         <input type="password" 
@@ -95,7 +92,6 @@ const NewUser = (props) => {
                             onChange={startSession}>
                         </input>
                     </div>
-                    
                     <div className="field-form">
                         <label htmlFor="confirmUser">Repeat password:</label>
                         <input type="password" 
@@ -106,7 +102,6 @@ const NewUser = (props) => {
                             onChange={startSession}>
                         </input>
                     </div>
-
                     <div className="field-form">
                         <input type="submit" className="btn btn-primary btn-block" value="Register me!"></input>
                     </div>
