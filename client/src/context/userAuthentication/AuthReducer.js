@@ -17,7 +17,13 @@ export default (state, action) => {
                 ...state,
                 isUserAuthenticated: false,
                 token: null
-            }  
+            } 
+        case  GET_USER:
+            console.log(action.payload);
+            return {
+                ...state,
+                user: action.payload
+            }
         case USER_REGISTER_ERROR:
             return {
                 ...state,

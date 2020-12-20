@@ -14,18 +14,18 @@ exports.authUser = async (req, res) => {
 
     const { email, password } = req.body;
     try {
-        let userFromDatabase = await User.findOne({email});
+        let user = await User.findOne({email});
         if (userFromDatabase === null) {
             return res.status(400).json({msg:'User doesn\'t exists'});
         }
-        const passwordIsCorrect = await bcryptjs.compare(password, userFromDatabase.password);
+        const passwordIsCorrect = await bcryptjs.compare(password, user.password);
         if (!passwordIsCorrect) {
             return res.status(400).json({msg:'Password is not correct'});
         }
 
         const payload = {
-            userFromDatabase : {
-                id: userFromDatabase.id
+            user : {
+                id: user.id
             }
         };
 
@@ -45,15 +45,11 @@ exports.authUser = async (req, res) => {
 }
 
 exports.getUser = async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({errors: errors.array()});
-    }
-
     try {
         let userId = req.user.id;
-        let userFromDatabase = await User.findOne({_id: ObjectId(userId)});
-        res.json({userFromDatabase});
+        let user = await User.findOne({_id: ObjectId(userId)}).select('-password');
+        console.log(user)
+        res.json({user});
     } catch(error) {
         console.error(error);
         return res.status(500).send('There was an error');

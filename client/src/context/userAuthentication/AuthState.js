@@ -3,6 +3,7 @@ import {USER_REGISTER_SUCCESS, USER_REGISTER_ERROR, LOGIN_ERROR, USER_LOGOUT, US
 import AuthContext from './AuthContext';
 import AuthReducer from './AuthReducer';
 import clientAxios from '../../config/axiosClient';
+import tokenAuth from '../../config/tokenAuthentication';
 
 const AuthState =  props => {
     const initialState = {
@@ -37,20 +38,25 @@ const AuthState =  props => {
 
     const returnAuthenticatedUser = async() => {
         const token = localStorage.getItem('token');
+        console.log('xuxaaa', token);
         if (token) {
-
+            tokenAuth(token);
         }
         try {
-            const response = await clientAxios.get('api/authUser');
+            const response = await clientAxios.get('api/authUsers');
             console.log(response);
+            dispatch({
+                type: GET_USER,
+                payload: response.data.user
+            });
         } catch(error) {
-            console.log(error);
+            console.log(error.response);
             dispatch({
                 type: LOGIN_ERROR,
             });
         }
     }
-
+    
     return(
         <AuthContext.Provider
             value = {{
