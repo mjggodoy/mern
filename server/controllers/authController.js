@@ -48,7 +48,6 @@ exports.getUser = async (req, res) => {
     try {
         let userId = req.user.id;
         let user = await User.findOne({_id: ObjectId(userId)}).select('-password');
-        console.log(user)
         res.json({user});
     } catch(error) {
         console.error(error);

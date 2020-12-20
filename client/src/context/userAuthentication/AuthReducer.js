@@ -19,7 +19,6 @@ export default (state, action) => {
                 token: null
             } 
         case  GET_USER:
-            console.log(action.payload);
             return {
                 ...state,
                 user: action.payload
