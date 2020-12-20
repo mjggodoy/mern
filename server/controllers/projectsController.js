@@ -37,7 +37,7 @@ exports.getProjects = async (req, res) => {
 // Request to update a project by project id
 exports.updateProjects = async (req, res) => {
     if (req.user == null && res.user.id == null) {
-        return res.status(500).json({msg: 'user has not authentication token'});
+        return res.status(500).json({msg: 'User has not authentication token'});
     }
 
     let project = {};

@@ -45,6 +45,10 @@ exports.authUser = async (req, res) => {
 }
 
 exports.getUser = async (req, res) => {
+    if (req.user == null && res.user.id == null) {
+        return res.status(500).json({msg: 'User has not authentication token'});
+    }
+
     try {
         let userId = req.user.id;
         let user = await User.findOne({_id: ObjectId(userId)}).select('-password');

@@ -42,7 +42,7 @@ exports.createTask = async (req, res) => {
 // Request to retrieve a task by project
 exports.getTasksByProject = async (req, res) => {
     if (req.user == null && res.user.id == null) {
-        return res.status(500).json({msg: 'user has not authentication token'});
+        return res.status(500).json({msg: 'User has not authentication token'});
     }
 
     try {
@@ -76,7 +76,7 @@ exports.getTasksByProject = async (req, res) => {
 // Request to update a task by taskid
 exports.updateTask = async (req, res) => {
     if (req.user == null && res.user.id == null) {
-        return res.status(500).json({msg: 'user has not authentication token'});
+        return res.status(500).json({msg: 'User has not authentication token'});
     }
 
     try {
@@ -121,7 +121,7 @@ exports.updateTask = async (req, res) => {
 
 exports.deleteTask = async (req, res) => { 
     if (req.user == null && res.user.id == null) {
-        return res.status(500).json({msg: 'user has not authentication token'});
+        return res.status(500).json({msg: 'User has not authentication token'});
     }
 
     try {
