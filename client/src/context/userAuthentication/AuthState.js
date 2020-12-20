@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react';
-import {USER_REGISTER_SUCCESS, USER_REGISTER_ERROR, USER_LOGOUT, USER_LOGIN_SUCCESS, GET_USER} from '../../types';
+import {USER_REGISTER_SUCCESS, USER_REGISTER_ERROR, LOGIN_ERROR, USER_LOGOUT, USER_LOGIN_SUCCESS, GET_USER} from '../../types';
 import AuthContext from './AuthContext';
 import AuthReducer from './AuthReducer';
 import clientAxios from '../../config/axiosClient';
@@ -21,6 +21,7 @@ const AuthState =  props => {
                 type: USER_REGISTER_SUCCESS,
                 payload: response
             });
+            returnAuthenticatedUser();
         } catch(error) {
             console.log(error.response.data.msg);
             const alertAuth = {
@@ -30,6 +31,22 @@ const AuthState =  props => {
             dispatch({
                 type: USER_REGISTER_ERROR,
                 payload: alertAuth
+            });
+        }
+    }
+
+    const returnAuthenticatedUser = async() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+
+        }
+        try {
+            const response = await clientAxios.get('api/authUser');
+            console.log(response);
+        } catch(error) {
+            console.log(error);
+            dispatch({
+                type: LOGIN_ERROR,
             });
         }
     }

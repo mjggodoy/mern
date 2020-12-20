@@ -8,7 +8,7 @@ module.exports = function(req, res, next) {
 
     try {
         const verifiedToken = jsonwebtoken.verify(token, process.env.SECRET);
-        req.user = verifiedToken.user;
+        req.user = verifiedToken.userFromDatabase;
         next();
     } catch(error) {
         res.status(401).json({msg: 'Token is not valid'})
