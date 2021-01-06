@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
+import AlertContext from './../../context/alerts/AlertContext';
+import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const Login = () => {
+    const {alert, showAlert} = useContext(AlertContext);
+    const {initSession, isAuthenticated, alertAuth} = useContext(AuthContext);
+
     const [userInformation, saveUserInformation] = useState({
         email : "", 
         password: ""
@@ -15,12 +20,17 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        if (email.trim()  === '' || password.trim() === '') {
+            showAlert(`All fields are mandatory`, `alert-error`);
+        }
+        initSession({email, password});
     }
 
     const {email, password} = userInformation;
 
     return (
         <div className="form-user">
+            {alert ? (<div className={`alert ${alert.category}`}>{alert.message}</div>) : null}
             <div className="container-form shadow-dark">
                 <h1>User Login</h1>
                 <form

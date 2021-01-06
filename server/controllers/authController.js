@@ -15,7 +15,7 @@ exports.authUser = async (req, res) => {
     const { email, password } = req.body;
     try {
         let user = await User.findOne({email});
-        if (userFromDatabase === null) {
+        if (user === null) {
             return res.status(400).json({msg:'User doesn\'t exists'});
         }
         const passwordIsCorrect = await bcryptjs.compare(password, user.password);

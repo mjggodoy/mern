@@ -18,7 +18,7 @@ export default (state, action) => {
                 isUserAuthenticated: false,
                 token: null
             } 
-        case  GET_USER:
+        case GET_USER:
             return {
                 ...state,
                 user: action.payload
