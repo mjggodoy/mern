@@ -57,9 +57,14 @@ const AuthState =  props => {
     const initSession = async data => {
         try {
             const response = await clientAxios.post('api/authUsers', data);
-            console.log(response);
+            dispatch({
+                type: USER_LOGIN_SUCCESS,
+                payload: response
+            });
+            console.log(response.data);
+            returnAuthenticatedUser();
         } catch(error) {
-            console.log(error.response)
+            console.log(error.response.data.msg);
             const alertAuth = {
                 message : error.response.data.msg,
                 category: 'alert-error'

@@ -15,7 +15,7 @@ const NewUser = (props) => {
         if (!isAuthenticated && alertAuth.message) {
             showAlert(alertAuth.message, alertAuth.category);
         }
-    }, [alertAuth.message, isAuthenticated]);
+    }, [alertAuth.message, isAuthenticated, props.history]);
 
     const [userInformation, saveUserInformation] = useState({
         userName : "",
