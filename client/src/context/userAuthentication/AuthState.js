@@ -24,6 +24,7 @@ const AuthState =  props => {
             });
             returnAuthenticatedUser();
         } catch(error) {
+            console.log(error.response.data.msg);
             const alertAuth = {
                 message : error.response.data.msg,
                 category: 'alert-error'
@@ -64,11 +65,16 @@ const AuthState =  props => {
             console.log(response.data);
             returnAuthenticatedUser();
         } catch(error) {
-            console.log(error.response.data.msg);
             const alertAuth = {
-                message : error.response.data.msg,
+                message : null,
                 category: 'alert-error'
             };
+            if (error.response.data.msg) {
+                alertAuth.message = error.response.data.msg
+            }
+            if (error.response.data.errors) {
+                alertAuth.message = error.response.data.errors[0].msg
+            }
             dispatch({
                 type: LOGIN_ERROR,
                 payload: alertAuth

@@ -8,7 +8,6 @@ const Login = (props) => {
     const {initSession, isAuthenticated, alertAuth} = useContext(AuthContext);
 
     useEffect(() => {
-        console.log(isAuthenticated);
         if(isAuthenticated) {
             props.history.push('/projects')
         }
