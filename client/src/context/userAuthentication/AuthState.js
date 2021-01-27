@@ -89,7 +89,8 @@ const AuthState =  props => {
                 user : state.user,
                 alertAuth : state.alertAuth,
                 registerUser,
-                initSession
+                initSession,
+                returnAuthenticatedUser
             }}
         >
             {props.children}
