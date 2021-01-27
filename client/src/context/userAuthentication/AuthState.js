@@ -24,7 +24,7 @@ const AuthState =  props => {
             });
             returnAuthenticatedUser();
         } catch(error) {
-            console.log(error.response.data.msg);
+            console.log(error.response.data);
             const alertAuth = {
                 message : error.response.data.msg,
                 category: 'alert-error'
@@ -81,6 +81,12 @@ const AuthState =  props => {
         }
     }
 
+    const closeSession = () => {
+        dispatch({
+            type: USER_LOGOUT,
+        });
+    }
+
     return(
         <AuthContext.Provider
             value = {{
@@ -90,7 +96,8 @@ const AuthState =  props => {
                 alertAuth : state.alertAuth,
                 registerUser,
                 initSession,
-                returnAuthenticatedUser
+                returnAuthenticatedUser, 
+                closeSession
             }}
         >
             {props.children}

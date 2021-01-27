@@ -2,7 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const Bar = () => {
-    const {returnAuthenticatedUser, user, isAuthenticated, token} = useContext(AuthContext);
+    const {user, returnAuthenticatedUser, closeSession} = useContext(AuthContext);
 
     useEffect(() => {
         returnAuthenticatedUser();
@@ -12,7 +12,7 @@ const Bar = () => {
        <header className="app-header">
            {user ? <p className="user-name">Welcome!: <span>{user.userName}</span></p>: null}
             <nav className="nav-main">
-                <button className="btn btn-blank close-session">Close session</button>
+                <button className="btn btn-blank close-session" onClick={() => closeSession()}>Close session</button>
             </nav>
        </header>
     );

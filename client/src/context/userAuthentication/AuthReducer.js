@@ -19,14 +19,25 @@ export default (state, action) => {
             }
         case LOGIN_ERROR:
         case USER_REGISTER_ERROR:
+        case USER_LOGOUT:
+            localStorage.removeItem('token');
+            let alertAuth = {};
+            if (action.payload) {
+                alertAuth = {
+                    message: action.payload.message,
+                    category: action.payload.category
+                }
+            } else {
+                alertAuth = {
+                    message: action.payload
+                }
+            }
             return {
                 ...state,
                isUserAuthenticated: false,
-               alertAuth : {
-                   message: action.payload.message,
-                   category: action.payload.category
-               },
-               token: null
+               alertAuth,
+               token: null,
+               user: null
            }
         default: 
             return state;
