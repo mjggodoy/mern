@@ -5,11 +5,13 @@ import TaskForm from './../task/TaskForm';
 import TaskList from './../task/TaskList';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
-const Projects = (props) => {
+const Projects = () => {
     const {returnAuthenticatedUser} = useContext(AuthContext);
+
     useEffect(() => {
         returnAuthenticatedUser();
     }, []);
+
     return (
         <div className="container-app">
             <SideBar/>

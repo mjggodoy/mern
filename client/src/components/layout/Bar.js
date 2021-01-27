@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const Bar = () => {
+    const {returnAuthenticatedUser, user, isAuthenticated, token} = useContext(AuthContext);
+
+    useEffect(() => {
+        returnAuthenticatedUser();
+    }, []);
+
     return (
        <header className="app-header">
-            <p className="user-name">Welcome!: <span>María García</span></p>
+           {user ? <p className="user-name">Welcome!: <span>{user.userName}</span></p>: null}
             <nav className="nav-main">
                 <a href="/">Close session</a>
             </nav>
