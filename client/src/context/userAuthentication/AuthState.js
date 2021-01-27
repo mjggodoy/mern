@@ -62,7 +62,6 @@ const AuthState =  props => {
                 type: USER_LOGIN_SUCCESS,
                 payload: response
             });
-            console.log(response.data);
             returnAuthenticatedUser();
         } catch(error) {
             const alertAuth = {
