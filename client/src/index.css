@@ -151,6 +151,11 @@ aside  {
   margin-right: 1rem;
 }
 
+.close-session {
+  color: #b64848;
+  text-decoration: none;
+}
+
 /** Formulario crear y editar tareas **/
 .form {
   background-color: var(--gris3);

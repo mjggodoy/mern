@@ -12,7 +12,7 @@ const Bar = () => {
        <header className="app-header">
            {user ? <p className="user-name">Welcome!: <span>{user.userName}</span></p>: null}
             <nav className="nav-main">
-                <a href="/">Close session</a>
+                <button className="btn btn-blank close-session">Close session</button>
             </nav>
        </header>
     );
