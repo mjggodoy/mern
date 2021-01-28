@@ -9,14 +9,15 @@ import {PROJECT_FORM,
         CURRENT_PROJECT,
         DELETE_PROJECT} from './../../types';
 import {v4 as uuid} from 'uuid';
+import clientAxios from '../../config/axiosClient';
 
 const ProjectState =  props => {
     const projects = [
-        {projectName : "Intranet", id : "1"}, 
-        {projectName : "Project Maria2", id : "2"},
-        {projectName : "Project Maria", id : "3"},
-        {projectName : "Incasso", id : "4"},
-        {projectName: "Test project", id: "5"}
+        {projectName : "Intranet", _id : "1"}, 
+        {projectName : "Project Maria2", _id : "2"},
+        {projectName : "Project Maria", _id : "3"},
+        {projectName : "Incasso", _id : "4"},
+        {projectName: "Test project", _id: "5"}
     ];
 
     const initialState = {
@@ -41,12 +42,17 @@ const ProjectState =  props => {
         });
     }
 
-    const addProject = project => {
-        project.id = uuid();
-        dispatch({
-            type: ADD_PROJECT,
-            payload: project
-        });
+    const addProject = async project => {
+        try {
+            const response = await clientAxios.post('api/projects', project);
+            console.log(response.data);
+            dispatch({
+                type: ADD_PROJECT,
+                payload: response.data
+            });
+        } catch(error) {
+
+        }
     }
 
     const showError = () => {
