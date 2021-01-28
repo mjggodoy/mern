@@ -18,4 +18,5 @@ const Project = ({project}) => {
         <button onClick={onClickselectedProject} type="button" className="btn btn-blank">{project.projectName}</button>
     );
 }
+
 export default Project;

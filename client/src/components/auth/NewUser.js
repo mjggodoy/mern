@@ -111,4 +111,5 @@ const NewUser = (props) => {
         </div>
     );
 }
+
 export default NewUser;

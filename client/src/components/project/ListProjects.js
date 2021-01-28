@@ -33,4 +33,5 @@ const ListProjects = () => {
         </ul>
     );
 }
+
 export default ListProjects;

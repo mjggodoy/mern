@@ -20,4 +20,5 @@ const taskSchema = mongoose.Schema({
         default: Date.now()
     }
 });
+
 module.exports = mongoose.model('tasks', taskSchema);
