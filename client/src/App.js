@@ -8,6 +8,7 @@ import TaskState from './context/tasks/TaskState';
 import AlertState from './context/alerts/AlertState';
 import AuthState from './context/userAuthentication/AuthState';
 import tokenAuthentication from './config/tokenAuthentication';
+import PrivateRoute from './components/routes/PrivateRoute';
 
 const token = localStorage.getItem('token');
 if(token) {
@@ -24,7 +25,7 @@ function App() {
                 <Switch>
                   <Route exact path="/" component={Login}/>
                   <Route exact path="/newuser" component={NewUser}/>
-                  <Route exact path="/projects" component={Projects}/>
+                  <PrivateRoute exact path="/projects" component={Projects}/>
                 </Switch>
               </Router>
           </TaskState>
