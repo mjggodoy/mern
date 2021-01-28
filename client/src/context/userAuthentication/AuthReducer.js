@@ -15,7 +15,9 @@ export default (state, action) => {
         case GET_USER:
             return {
                 ...state,
-                user: action.payload
+                user: action.payload,
+                chargingPage: false,
+                isUserAuthenticated: true,
             }
         case LOGIN_ERROR:
         case USER_REGISTER_ERROR:
@@ -34,10 +36,11 @@ export default (state, action) => {
             }
             return {
                 ...state,
-               isUserAuthenticated: false,
-               alertAuth,
-               token: null,
-               user: null
+                chargingPage: false,
+                isUserAuthenticated: false,
+                alertAuth,
+                token: null,
+                user: null
            }
         default: 
             return state;
