@@ -10,11 +10,12 @@ const Bar = () => {
 
     return (
        <header className="app-header">
-           {user ? <p className="user-name">Welcome!: <span>{user.userName}</span></p>: null}
+           {user ? <p className="user-name"><span>Welcome, {user.userName}!</span></p>: null}
             <nav className="nav-main">
                 <button className="btn btn-blank close-session" onClick={() => closeSession()}>Close session</button>
             </nav>
        </header>
     );
 }
+
 export default Bar;
