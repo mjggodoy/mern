@@ -10,8 +10,8 @@ const Project = ({project}) => {
     const {getTasksByProjectId} = tasksContext;
 
     const onClickselectedProject = () => {
-        selectedCurrentProjectByUser(project.id);
-        getTasksByProjectId(project.id);
+        selectedCurrentProjectByUser(project._id);
+        getTasksByProjectId(project._id);
     }
 
     return (
