@@ -3,7 +3,7 @@ import {PROJECT_FORM,
         ADD_PROJECT, 
         VALIDATE_FORM,
         CURRENT_PROJECT,
-        DELETE_PROJECT} from '../../types';
+        DELETE_PROJECT, PROJECT_ERROR} from '../../types';
 
 export default (state, action) => {
     switch(action.type) {
@@ -41,6 +41,23 @@ export default (state, action) => {
                 projects: state.projects.filter(project => 
                 project._id !== action.payload),
                 project: null
+            }
+        case PROJECT_ERROR:
+            let alertAuth = {};
+            if (action.payload) {
+                alertAuth = {
+                    message: action.payload.message,
+                    category: action.payload.category
+                }
+            } else {
+                alertAuth = {
+                    message: action.payload
+                }
+            }
+            return {
+                ...state,
+                errorProject: true,
+                alertAuth
             }
         default: 
             return state;

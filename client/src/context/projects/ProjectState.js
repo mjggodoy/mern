@@ -7,7 +7,8 @@ import {PROJECT_FORM,
         ADD_PROJECT,
         VALIDATE_FORM,
         CURRENT_PROJECT,
-        DELETE_PROJECT} from './../../types';
+        DELETE_PROJECT,
+        PROJECT_ERROR} from './../../types';
 import {v4 as uuid} from 'uuid';
 import clientAxios from '../../config/axiosClient';
 
@@ -17,7 +18,9 @@ const ProjectState =  props => {
         projects : [],
         projectForm: false,
         errorForm: false,
-        project: null
+        project: null,
+        alertAuth : {},
+        errorProject: false
     }
 
     const [state, dispatch] = useReducer(ProjectReducer, initialState);
@@ -36,7 +39,14 @@ const ProjectState =  props => {
                 payload: response.data.projectsFromUser
             });
         } catch(error) {
-            console.log(error);
+            const alertAuth = {
+                message : error.response.data,
+                category: 'alert-error'
+            };
+            dispatch({
+                type: PROJECT_ERROR,
+                payload: alertAuth
+            });
         }
     }
 
@@ -67,13 +77,21 @@ const ProjectState =  props => {
 
     const deleteProject = async projectId => {
         try {
-            await clientAxios.delete(`api/projects/${projectId}`);
+            const response = await clientAxios.delete(`api/projects/${projectId}`);
+            console.log(response);
             dispatch({
                 type: DELETE_PROJECT,
                 payload: projectId
             });
         } catch(error) {
-            console.log(error);
+            const alertAuth = {
+                message : error.response.data.msg,
+                category: 'alert-error'
+            };
+            dispatch({
+                type: PROJECT_ERROR,
+                payload: alertAuth
+            });
         }
     }
 
@@ -84,6 +102,8 @@ const ProjectState =  props => {
                 projects : state.projects,
                 errorForm: state.errorForm,
                 project: state.project,
+                errorProject: state.errorProject,
+                alertAuth : state.alertAuth,
                 showForm,
                 getProjects,
                 addProject,
