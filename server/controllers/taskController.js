@@ -39,7 +39,7 @@ exports.createTask = async (req, res) => {
     }
 }
 
-// Request to retrieve a task by project
+// Request to retrieve a task by project id
 exports.getTasksByProject = async (req, res) => {
     if (req.user == null && res.user.id == null) {
         return res.status(500).json({msg: 'User has not authentication token'});
@@ -115,27 +115,10 @@ exports.deleteTask = async (req, res) => {
     }
 
     try {
-        let task = {};
-        if (req.body != null) {
-            task.projectId = await req.body.projectId;
-            if ( task.projectId  == null) {
-                return res.status(404).json({msg: 'This project id is not correct'});
-            }
-            task.name = await req.body.name;
-            if (task.name == null) {
-                return res.status(404).json({msg: 'This project name is not correct'});
-            } 
-        }
-        let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(task.projectId)});
-        if (projectsFromRequestParameter == null) {
-            return res.status(401).json({msg: 'This project has not been found'});
-        }
-
-        if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
-            return res.status(401).json({msg: 'User is not authorized'});
-        }
-
         let taskId = req.params.id;
+        if (taskId == null) {
+            return res.status(404).json({msg: 'Please introduce the taskId'});
+        }
         const taskIdMaxLengthAllowed = 24;
         if (taskId.length != taskIdMaxLengthAllowed) {
             return res.status(401).json({msg: 'This task id is not correct'});
