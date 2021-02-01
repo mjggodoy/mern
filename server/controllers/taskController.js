@@ -46,26 +46,16 @@ exports.getTasksByProject = async (req, res) => {
     }
 
     try {
-        let projectId = req.body.projectId;
-        if (projectId == null) {
-            return res.status(401).json({msg: 'The body is empty. Please, introduce the project id'});
-        }
-
+        let projectId = req.params.id;
         const projectIdMaxLengthAllowed = 24;
         if (projectId.length != projectIdMaxLengthAllowed) {
             return res.status(401).json({msg: 'This project id is not correct'});
         }
-
         let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
-        if (projectsFromRequestParameter == null) {
-            return res.status(401).json({msg: 'This project has not been found'});
+        if (!projectsFromRequestParameter) {
+            return res.status(404).json({msg: 'This project has not been found'});
         }
-
-        if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
-            return res.status(401).json({msg: 'User is not authorized'});
-        }
-
-        let taskByProjectId = await Task.find({projectId: projectId});
+        let taskByProjectId = await Task.find({projectId: projectId}).sort({taskDate: -1});;
         return res.json({taskByProjectId});
     } catch (error) {
         console.error(error);

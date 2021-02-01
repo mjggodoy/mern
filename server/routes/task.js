@@ -13,7 +13,7 @@ router.post('/',
     taskController.createTask
 )
 
-router.get('/',
+router.get('/:id',
     authentication,
     taskController.getTasksByProject
 )

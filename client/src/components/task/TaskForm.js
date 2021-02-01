@@ -12,14 +12,12 @@ const TaskForm = () => {
         } else {
             saveNewTask({
                 name : "", 
-                id: "",
                 projectId: ""
             })}
     }, [selectedTask]);
 
     const [newTask, saveNewTask] = useState({
         name : "", 
-        id: "",
         projectId: ""
     });
 
@@ -45,7 +43,7 @@ const TaskForm = () => {
         }
 
         if (selectedTask === null) {
-            newTask.projectId = currentProject.id;
+            newTask.projectId = currentProject._id;
             newTask.status = "In progress";
             addNewTask(newTask);
         } else {
@@ -53,7 +51,7 @@ const TaskForm = () => {
             cleanSelectedTask(selectedTask)
         }
         saveNewTask({name:''});
-        getTasksByProjectId(currentProject.id); 
+        getTasksByProjectId(currentProject._id); 
     }
 
     return (

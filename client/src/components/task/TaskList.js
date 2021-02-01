@@ -9,6 +9,7 @@ const TaskList = () => {
     const {alert, showAlert} = useContext(AlertContext);
     const projectsContext = useContext(ProjectContext);
     const {project, errorProject, deleteProject, alertAuth} = projectsContext;
+    const {tasksByProject} = useContext(TaskContext);
 
     useEffect(() => {
         if (errorProject) {
@@ -16,8 +17,6 @@ const TaskList = () => {
         }
     }, [alertAuth.message, errorProject]);
 
-    const taskContext = useContext(TaskContext);
-    const {tasksByProject} = taskContext;
     if (project === null) {
         return <h2>Select a project</h2>;
     }
@@ -37,11 +36,11 @@ const TaskList = () => {
                 <TransitionGroup>
                 {tasksByProject.map(task => (
                     <CSSTransition
-                        key={task.id}
+                        key={task._id}
                         timeout={100}
                         className="task"
                     >
-                        <Task task = {task} key={task.id}/>
+                        <Task task = {task} key={task._id}/>
                     </CSSTransition>
                 ))}
                 </TransitionGroup>

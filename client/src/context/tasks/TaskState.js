@@ -13,45 +13,41 @@ import {
     UPDATE_TASK,
     CLEAN_SELECTED_TASK
 } from './../../types';
+import clientAxios from '../../config/axiosClient';
 
 const TaskState =  props => {
-    const tasks = [
-        {name : "Task1", id: "1", status: "Completed", projectId: "1"}, 
-        {name : "Task2", id: "2", status: "Closed", projectId: "3"},
-        {name : "Task3", id: "3", status: "In progress", projectId: "4"},
-        {name : "Task1", id: "4", status: "Completed", projectId: "5"}, 
-        {name : "Task2", id: "5", status: "Closed", projectId: "3"},
-        {name : "Task1", id: "6", status: "Completed", projectId: "5"}, 
-        {name : "Task2", id: "7", status: "Closed", projectId: "3"},
-        {name : "Task1", id: "8", status: "Completed", projectId: "1"}, 
-        {name : "Task2", id: "9", status: "Closed", projectId: "4"},
-        {name : "Task1", id: "10", status: "In progress", projectId: "5"}, 
-        {name : "Task2", id: "11", status: "Closed", projectId: "3"},
-        {name : "Task30", id: "12", status: "Completed", projectId: "2"}, 
-    ];
 
     const initialState = {
-        tasks: tasks,
-        tasksByProject: null,
+        tasks: [],
+        tasksByProject: [],
         errorTaskForm: false,
         selectedTask: null
     }
 
     const [state, dispatch] = useReducer(TaskReducer, initialState);
 
-    const getTasksByProjectId = projectId => {
-        dispatch({
-            type: TASK_PER_PROJECT,
-            payload: projectId
-        });
+    const getTasksByProjectId = async projectId => {
+        try {
+            const response = await clientAxios.get(`api/tasks/${projectId}`);            
+            dispatch({
+                type: TASK_PER_PROJECT,
+                payload: response.data.taskByProjectId
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    const addNewTask = task => {
-        task.id = uuid();
-        dispatch({
-            type: ADD_NEW_TASK,
-            payload: task
-        });
+    const addNewTask = async task => {
+        try {
+            const response = await clientAxios.post('api/tasks', task);
+            dispatch({
+                type: ADD_NEW_TASK,
+                payload: response.data.task
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const validateTaskForm = () => {
