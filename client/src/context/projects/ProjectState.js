@@ -77,8 +77,7 @@ const ProjectState =  props => {
 
     const deleteProject = async projectId => {
         try {
-            const response = await clientAxios.delete(`api/projects/${projectId}`);
-            console.log(response);
+            await clientAxios.delete(`api/projects/${projectId}`);
             dispatch({
                 type: DELETE_PROJECT,
                 payload: projectId
