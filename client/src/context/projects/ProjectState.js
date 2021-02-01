@@ -9,7 +9,6 @@ import {PROJECT_FORM,
         CURRENT_PROJECT,
         DELETE_PROJECT,
         PROJECT_ERROR} from './../../types';
-import {v4 as uuid} from 'uuid';
 import clientAxios from '../../config/axiosClient';
 
 const ProjectState =  props => {
