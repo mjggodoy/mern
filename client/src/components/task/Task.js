@@ -3,12 +3,13 @@ import TaskContext from '../../context/tasks/TaskContext';
 import ProjectContext from '../../context/projects/ProjectContext';
 
 const Task = ({task}) => {
-    const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
     const {project} = useContext(ProjectContext);
     const [currentProject] = project;
-
-    const onClickDeleteTask = () => {
-        deleteTask(task._id, currentProject._id);
+    const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
+    
+   
+    const onClickDeleteTask = id => {
+        deleteTask(id, currentProject._id);
         getTasksByProjectId(currentProject._id);
     }
 
@@ -19,7 +20,6 @@ const Task = ({task}) => {
             task.status = 'Closed';
         }
         changeStatusTask(task);
-        getTasksByProjectId(currentProject._id);
     }
 
     const onClickSelectedTask = task => {
@@ -39,7 +39,7 @@ const Task = ({task}) => {
             </div>
             <div className="actions">
                 <button type="button" className="btn btn-primary" onClick={() => onClickSelectedTask(task)}>Edit</button>
-                <button type="button" className="btn btn-secondary" onClick={onClickDeleteTask}>Delete Task &times;</button>
+                <button type="button" className="btn btn-delete" onClick={() => onClickDeleteTask(task._id)}>Delete Task &times;</button>
             </div>
         </li>
     );
