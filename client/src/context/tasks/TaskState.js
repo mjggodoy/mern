@@ -2,7 +2,6 @@ import React from 'react';
 import TaskContext from './TaskContext';
 import TaskReducer from './TaskReducer';
 import {useReducer} from 'react';
-import {v4 as uuid} from 'uuid';
 import {
     TASK_PER_PROJECT,
     ADD_NEW_TASK,
