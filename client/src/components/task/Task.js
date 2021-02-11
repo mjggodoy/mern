@@ -8,8 +8,8 @@ const Task = ({task}) => {
     const [currentProject] = project;
     
     const onClickDeleteTask = () => {
-        deleteTask(task.id);
-        getTasksByProjectId(currentProject.id);
+        deleteTask(task._id);
+        getTasksByProjectId(currentProject._id);
     }
 
     const onClickChangeStatusTask = task => {
