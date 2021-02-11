@@ -3,15 +3,10 @@ import TaskContext from '../../context/tasks/TaskContext';
 import ProjectContext from '../../context/projects/ProjectContext';
 
 const Task = ({task}) => {
-    const {taskChanged, deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
+    const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
     const {project} = useContext(ProjectContext);
     const [currentProject] = project;
 
-    useEffect(() => {
-        console.log(taskChanged);
-        getTasksByProjectId(currentProject._id);
-    }, [taskChanged]);
-    
     const onClickDeleteTask = () => {
         deleteTask(task._id, currentProject._id);
         getTasksByProjectId(currentProject._id);
