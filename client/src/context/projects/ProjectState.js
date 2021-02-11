@@ -12,7 +12,6 @@ import {PROJECT_FORM,
 import clientAxios from '../../config/axiosClient';
 
 const ProjectState =  props => {
-    const projects = [];
     const initialState = {
         projects : [],
         projectForm: false,

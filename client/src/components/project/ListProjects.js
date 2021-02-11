@@ -14,7 +14,6 @@ const ListProjects = () => {
             showAlert(alertAuth.message);
         }
         getProjects();
-        
     }, []);
 
     if (projects.length === 0 && alertAuth.message == null) {

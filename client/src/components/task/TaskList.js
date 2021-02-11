@@ -9,12 +9,13 @@ const TaskList = () => {
     const {alert, showAlert} = useContext(AlertContext);
     const projectsContext = useContext(ProjectContext);
     const {project, errorProject, deleteProject, alertAuth} = projectsContext;
-    const {tasksByProject} = useContext(TaskContext);
+    const {tasksByProject, getTasksByProjectId} = useContext(TaskContext);
 
     useEffect(() => {
         if (errorProject) {
             showAlert(alertAuth.message, alertAuth.category, alert);
         }
+        getTasksByProjectId();
     }, [alertAuth.message, errorProject]);
 
     if (project === null) {
