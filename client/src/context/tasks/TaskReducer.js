@@ -14,13 +14,13 @@ export default (state, action) => {
         case TASK_PER_PROJECT:
             return {
                 ...state,
-                tasksByProject: action.payload
+                tasksByProject: action.payload,
             }
         case ADD_NEW_TASK:
             return {
                 ...state,
                 tasks: [...state.tasks, action.payload],
-                errorTaskForm: false
+                errorTaskForm: false,
             }
         case VALIDATE_TASK_FORM:
             return {
@@ -31,7 +31,7 @@ export default (state, action) => {
             return {
                 ...state,
                 tasks: state.tasks.filter(task => 
-                task.id !== action.payload)
+                task._id !== action.payload), 
             }
         case STATUS_TASK:
             return {

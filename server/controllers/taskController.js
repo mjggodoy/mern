@@ -115,6 +115,20 @@ exports.deleteTask = async (req, res) => {
     }
 
     try {
+        if (req.body != null) {
+            let projectId = req.body.projectId;
+            if (projectId == null) {
+                return res.status(404).json({msg: 'This project id is not correct'});
+            }
+            let projectsFromRequestParameter = await Project.findOne({_id: ObjectId(projectId)});
+            if (projectsFromRequestParameter == null) {
+                return res.status(404).json({msg: 'This project has not been found'});
+            }
+            if (projectsFromRequestParameter.projectCreator.toString() != req.user.id) {
+                return res.status(401).json({msg: 'User is not authorized'});
+            }
+        }
+
         let taskId = req.params.id;
         if (taskId == null) {
             return res.status(404).json({msg: 'Please introduce the taskId'});
@@ -129,6 +143,9 @@ exports.deleteTask = async (req, res) => {
         }
 
         taskFromRequestParameter = await Task.findByIdAndDelete({_id: ObjectId(taskId)});
+        if (!taskFromRequestParameter) {
+            return res.status(404).json({msg: 'The task has not been found'});
+        }
         return res.json({msg: `The task with name ${taskFromRequestParameter.name} has been succesfully deleted`});
     } catch(error) {
         console.error(error);

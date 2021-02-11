@@ -1,14 +1,19 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import TaskContext from '../../context/tasks/TaskContext';
 import ProjectContext from '../../context/projects/ProjectContext';
 
 const Task = ({task}) => {
-    const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
+    const {taskChanged, deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
     const {project} = useContext(ProjectContext);
     const [currentProject] = project;
+
+    useEffect(() => {
+        console.log(taskChanged);
+        getTasksByProjectId(currentProject._id);
+    }, [taskChanged]);
     
     const onClickDeleteTask = () => {
-        deleteTask(task._id);
+        deleteTask(task._id, currentProject._id);
         getTasksByProjectId(currentProject._id);
     }
 
@@ -19,7 +24,7 @@ const Task = ({task}) => {
             task.status = 'Closed';
         }
         changeStatusTask(task);
-        getTasksByProjectId(currentProject.id);
+        getTasksByProjectId(currentProject._id);
     }
 
     const onClickSelectedTask = task => {
