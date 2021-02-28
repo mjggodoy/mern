@@ -6,8 +6,7 @@ const Task = ({task}) => {
     const {project} = useContext(ProjectContext);
     const [currentProject] = project;
     const {deleteTask, getTasksByProjectId, changeStatusTask, saveCurrentSelectedTask} = useContext(TaskContext);
-    
-   
+
     const onClickDeleteTask = id => {
         deleteTask(id, currentProject._id);
         getTasksByProjectId(currentProject._id);
