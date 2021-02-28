@@ -15,9 +15,7 @@ import {
 import clientAxios from '../../config/axiosClient';
 
 const TaskState =  props => {
-
     const initialState = {
-        tasks: [],
         tasksByProject: [],
         errorTaskForm: false,
         selectedTask: null
@@ -98,7 +96,6 @@ const TaskState =  props => {
     return(
         <TaskContext.Provider
             value = {{
-                tasks : state.tasks,
                 errorTaskForm: state.errorTaskForm,
                 tasksByProject: state.tasksByProject,
                 selectedTask: state.selectedTask,
