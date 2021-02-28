@@ -43,4 +43,5 @@ const Task = ({task}) => {
         </li>
     );
 }
+
 export default Task;
