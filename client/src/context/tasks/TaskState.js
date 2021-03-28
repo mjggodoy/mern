@@ -72,6 +72,7 @@ const TaskState =  props => {
     }
 
     const updateOrModifyTask = task => {
+        console.log(task);
         dispatch({
             type: UPDATE_TASK,
             payload: task
