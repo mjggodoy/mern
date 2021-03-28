@@ -9,7 +9,6 @@ export const TASK_PER_PROJECT = "TASK_PER_PROJECT";
 export const ADD_NEW_TASK = "ADD_NEW_TASK";
 export const VALIDATE_TASK_FORM = "VALIDATE_TASK_FORM";
 export const DELETE_TASK = "DELETE_TASK";
-export const STATUS_TASK = "STATUS_TASK";
 export const CURRENT_TASK = "CURRENT_TASK";
 export const UPDATE_TASK = "UPDATE_TASK";
 export const CLEAN_SELECTED_TASK = "CLEAN_SELECTED_TASK";

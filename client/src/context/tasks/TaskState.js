@@ -7,7 +7,6 @@ import {
     ADD_NEW_TASK,
     VALIDATE_TASK_FORM,
     DELETE_TASK,
-    STATUS_TASK,
     CURRENT_TASK,
     UPDATE_TASK,
     CLEAN_SELECTED_TASK
@@ -65,13 +64,6 @@ const TaskState =  props => {
         }
     }
 
-    const changeStatusTask = task => {
-        dispatch({
-            type: STATUS_TASK,
-            payload: task
-        });
-    }
-
     const saveCurrentSelectedTask = task => {
         dispatch({
             type: CURRENT_TASK,
@@ -103,7 +95,6 @@ const TaskState =  props => {
                 addNewTask,
                 validateTaskForm,
                 deleteTask,
-                changeStatusTask,
                 saveCurrentSelectedTask,
                 updateOrModifyTask,
                 cleanSelectedTask
