@@ -15,6 +15,7 @@ const Login = (props) => {
         if (alertAuth.message) {
             showAlert(alertAuth.message, alertAuth.category);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [alertAuth.message, isAuthenticated]);
 
     const [userInformation, saveUserInformation] = useState({

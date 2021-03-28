@@ -14,6 +14,7 @@ const ListProjects = () => {
             showAlert(alertAuth.message);
         }
         getProjects();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (projects.length === 0 && alertAuth.message == null) {

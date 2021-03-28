@@ -9,12 +9,13 @@ const TaskList = () => {
     const {alert, showAlert} = useContext(AlertContext);
     const projectsContext = useContext(ProjectContext);
     const {project, errorProject, deleteProject, alertAuth} = projectsContext;
-    const {tasksByProject, getTasksByProjectId} = useContext(TaskContext);
+    const {tasksByProject} = useContext(TaskContext);
 
     useEffect(() => {
         if (errorProject) {
             showAlert(alertAuth.message, alertAuth.category, alert);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [alertAuth.message, errorProject]);
 
     if (project === null) {

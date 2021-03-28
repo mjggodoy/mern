@@ -6,6 +6,7 @@ const PrivateRoute = ({component: Component, ...props}) => {
     const {isAuthenticated, returnAuthenticatedUser, chargingPage} = useContext(AuthContext);
     useEffect(() => {
         returnAuthenticatedUser();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return(
