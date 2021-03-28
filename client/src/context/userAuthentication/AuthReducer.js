@@ -1,6 +1,6 @@
 import {USER_REGISTER_SUCCESS, USER_REGISTER_ERROR, LOGIN_ERROR, USER_LOGOUT, USER_LOGIN_SUCCESS, GET_USER} from '../../types';
 
-export default (state, action) => {
+const AuthReducer = (state, action) => {
     switch(action.type) {
         case USER_LOGIN_SUCCESS:
         case USER_REGISTER_SUCCESS:
@@ -46,3 +46,5 @@ export default (state, action) => {
             return state;
     }
 }
+
+export default AuthReducer;

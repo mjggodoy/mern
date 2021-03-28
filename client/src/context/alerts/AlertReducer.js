@@ -1,6 +1,6 @@
 import {SHOW_ALERT, HIDE_ALERT} from '../../types';
 
-export default (state, action) => {
+const AlertReducer = (state, action) => {
     switch(action.type) {
         default: 
             return state;
@@ -12,3 +12,5 @@ export default (state, action) => {
             return {alert: null};
     }
 }
+
+export default AlertReducer;
