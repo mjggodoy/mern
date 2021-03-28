@@ -11,7 +11,7 @@ import tokenAuthentication from './config/tokenAuthentication';
 import PrivateRoute from './components/routes/PrivateRoute';
 
 const token = localStorage.getItem('token');
-if(token) {
+if (token) {
   tokenAuthentication(token);
 }
 
