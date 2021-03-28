@@ -41,7 +41,7 @@ export default (state, action) => {
             return {
                 ...state,
                 tasksByProject: state.tasksByProject.map(task =>
-                    task.id === action.payload.id ? action.payload : task)
+                    task._id === action.payload._id ? action.payload : task)
             }
         case CLEAN_SELECTED_TASK:
             return {
