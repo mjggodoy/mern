@@ -74,7 +74,6 @@ const TaskState =  props => {
     const updateOrModifyTask = async task => {
         try {
             const response = await clientAxios.put(`api/tasks/${task._id}`, task);
-            console.log(response);
             dispatch({
                 type: UPDATE_TASK,
                 payload: response.data.taskById
