@@ -71,12 +71,17 @@ const TaskState =  props => {
         });
     }
 
-    const updateOrModifyTask = task => {
-        console.log(task);
-        dispatch({
-            type: UPDATE_TASK,
-            payload: task
-        });
+    const updateOrModifyTask = async task => {
+        try {
+            const response = await clientAxios.put(`api/tasks/${task._id}`, task);
+            console.log(response);
+            dispatch({
+                type: UPDATE_TASK,
+                payload: response.data.taskById
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const cleanSelectedTask = task => {
