@@ -15,7 +15,6 @@ const TaskList = () => {
         if (errorProject) {
             showAlert(alertAuth.message, alertAuth.category, alert);
         }
-        getTasksByProjectId();
     }, [alertAuth.message, errorProject]);
 
     if (project === null) {
