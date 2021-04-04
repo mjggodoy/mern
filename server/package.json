@@ -4,7 +4,7 @@
   "description": "App to create projects and tasks",
   "server": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node .",
     "dev": "nodemon ."
   },
   "repository": {
