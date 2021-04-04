@@ -2,9 +2,9 @@
   "name": "merntaskserver",
   "version": "1.0.0",
   "description": "App to create projects and tasks",
-  "main": "index.js",
+  "server": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "dev": "nodemon ."
   },
   "repository": {
@@ -13,6 +13,9 @@
   },
   "author": "María Jesús García Godoy",
   "license": "ISC",
+  "engines": {
+    "node": "12.13.0"
+  },
   "bugs": {
     "url": "https://github.com/mjggodoy/mern/issues"
   },
