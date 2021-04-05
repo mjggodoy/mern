@@ -50,8 +50,8 @@ const TaskForm = () => {
             updateOrModifyTask(newTask);
             cleanSelectedTask(selectedTask)
         }
-        saveNewTask({name:''});
         getTasksByProjectId(currentProject._id); 
+        saveNewTask({name:''});
     }
 
     return (
