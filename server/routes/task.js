@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const taskController = require('./../controllers/taskController');
 const authentication = require('../middleware/authentication');
-const {check} = require('express-validator');
+const { check } = require('express-validator');
 
 router.post('/',
     authentication,
