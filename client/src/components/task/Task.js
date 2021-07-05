@@ -3,9 +3,9 @@ import TaskContext from '../../context/tasks/TaskContext';
 import ProjectContext from '../../context/projects/ProjectContext';
 
 const Task = ({task}) => {
-    const {project} = useContext(ProjectContext);
+    const { project } = useContext(ProjectContext);
     const [currentProject] = project;
-    const {deleteTask, getTasksByProjectId, saveCurrentSelectedTask, updateOrModifyTask} = useContext(TaskContext);
+    const { deleteTask, getTasksByProjectId, saveCurrentSelectedTask, updateOrModifyTask } = useContext(TaskContext);
 
     const onClickDeleteTask = id => {
         deleteTask(id, currentProject._id);

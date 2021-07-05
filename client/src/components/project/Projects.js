@@ -6,7 +6,7 @@ import TaskList from './../task/TaskList';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const Projects = () => {
-    const {returnAuthenticatedUser} = useContext(AuthContext);
+    const { returnAuthenticatedUser } = useContext(AuthContext);
 
     useEffect(() => {
         returnAuthenticatedUser();

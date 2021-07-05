@@ -3,7 +3,7 @@ import { PROJECT_FORM,
         ADD_PROJECT, 
         VALIDATE_FORM,
         CURRENT_PROJECT,
-        DELETE_PROJECT, PROJECT_ERROR} from '../../types';
+        DELETE_PROJECT, PROJECT_ERROR } from '../../types';
 
 const ProjecReducer = (state, action) => {
     switch(action.type) {

@@ -6,8 +6,8 @@ import AlertContext from './../../context/alerts/AlertContext';
 
 const ListProjects = () => {
     const projectsContext = useContext(ProjectContext);
-    const {alertAuth, projects, getProjects} = projectsContext;
-    const {alert, showAlert} = useContext(AlertContext);
+    const { alertAuth, projects, getProjects } = projectsContext;
+    const { alert, showAlert } = useContext(AlertContext);
 
     useEffect(() => {
         if (alertAuth) {

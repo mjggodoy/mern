@@ -34,4 +34,5 @@ function App() {
     </AuthState>
   );
 }
+
 export default App;

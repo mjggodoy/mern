@@ -4,10 +4,10 @@ import TaskContext from '../../context/tasks/TaskContext';
 
 const Project = ({project}) => {
     const projectsContext = useContext(ProjectContext);
-    const {selectedCurrentProjectByUser} = projectsContext;
+    const { selectedCurrentProjectByUser } = projectsContext;
 
     const tasksContext = useContext(TaskContext);
-    const {getTasksByProjectId} = tasksContext;
+    const { getTasksByProjectId } = tasksContext;
 
     const onClickselectedProject = () => {
         selectedCurrentProjectByUser(project._id);

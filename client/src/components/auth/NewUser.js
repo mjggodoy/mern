@@ -4,8 +4,8 @@ import AlertContext from './../../context/alerts/AlertContext';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const NewUser = (props) => {
-    const {alert, showAlert} = useContext(AlertContext);
-    const {registerUser, isAuthenticated, alertAuth} = useContext(AuthContext);
+    const { alert, showAlert } = useContext(AlertContext);
+    const { registerUser, isAuthenticated, alertAuth } = useContext(AuthContext);
 
     useEffect(() => {
         if(isAuthenticated) {
@@ -50,10 +50,10 @@ const NewUser = (props) => {
         if (password !== confirmUser) {
             showAlert(`The two passwords must match`, `alert-error`);
         }
-        registerUser({userName, email, password});
+        registerUser({ userName, email, password });
     }
 
-    const {userName, email, password, confirmUser} = userInformation;
+    const { userName, email, password, confirmUser } = userInformation;
 
     return (
         <div className="form-user">

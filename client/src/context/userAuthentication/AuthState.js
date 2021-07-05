@@ -1,5 +1,10 @@
 import React, { useReducer } from 'react';
-import { USER_REGISTER_SUCCESS, USER_REGISTER_ERROR, LOGIN_ERROR, USER_LOGOUT, USER_LOGIN_SUCCESS, GET_USER } from '../../types';
+import { USER_REGISTER_SUCCESS, 
+    USER_REGISTER_ERROR, 
+    LOGIN_ERROR, 
+    USER_LOGOUT, 
+    USER_LOGIN_SUCCESS, 
+    GET_USER } from '../../types';
 import AuthContext from './AuthContext';
 import AuthReducer from './AuthReducer';
 import clientAxios from '../../config/axiosClient';

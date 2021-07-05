@@ -3,8 +3,9 @@ import ProjectContext from '../../context/projects/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
 
 const TaskForm = () => {
-    const {project} = useContext(ProjectContext);
-    const {selectedTask, cleanSelectedTask, addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId, updateOrModifyTask} = useContext(TaskContext);
+    const { project } = useContext(ProjectContext);
+    const { selectedTask, cleanSelectedTask, addNewTask, errorTaskForm, validateTaskForm, getTasksByProjectId, updateOrModifyTask
+    } = useContext(TaskContext);
     
     useEffect(() => {
         if (selectedTask !== null) {
@@ -26,7 +27,7 @@ const TaskForm = () => {
     }
 
     const [currentProject] = project;
-    const {name} = newTask;
+    const { name } = newTask;
 
     const onChangeTask = e => {
         saveNewTask({

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const Bar = () => {
-    const {user, returnAuthenticatedUser, closeSession} = useContext(AuthContext);
+    const { user, returnAuthenticatedUser, closeSession } = useContext(AuthContext);
 
     useEffect(() => {
         returnAuthenticatedUser();

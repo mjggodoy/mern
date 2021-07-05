@@ -2,14 +2,14 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import Task from './Task';
 import ProjectContext from '../../context/projects/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import AlertContext from './../../context/alerts/AlertContext';
 
 const TaskList = () => {
-    const {alert, showAlert} = useContext(AlertContext);
+    const { alert, showAlert } = useContext(AlertContext);
     const projectsContext = useContext(ProjectContext);
-    const {project, errorProject, deleteProject, alertAuth} = projectsContext;
-    const {tasksByProject} = useContext(TaskContext);
+    const { project, errorProject, deleteProject, alertAuth } = projectsContext;
+    const { tasksByProject } = useContext(TaskContext);
 
     useEffect(() => {
         if (errorProject) {

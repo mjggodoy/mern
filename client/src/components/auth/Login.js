@@ -4,8 +4,8 @@ import AlertContext from './../../context/alerts/AlertContext';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const Login = (props) => {
-    const {alert, showAlert} = useContext(AlertContext);
-    const {initSession, isAuthenticated, alertAuth} = useContext(AuthContext);
+    const { alert, showAlert } = useContext(AlertContext);
+    const { initSession, isAuthenticated, alertAuth } = useContext(AuthContext);
 
     useEffect(() => {
         if(isAuthenticated) {
@@ -34,10 +34,10 @@ const Login = (props) => {
         if (email.trim()  === '' || password.trim() === '') {
             showAlert(`All fields are mandatory`, `alert-error`);
         }
-        initSession({email, password});
+        initSession({ email, password });
     }
 
-    const {email, password} = userInformation;
+    const { email, password } = userInformation;
 
     return (
         <div className="form-user">

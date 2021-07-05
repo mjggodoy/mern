@@ -1,9 +1,9 @@
-import React, {useContext, useEffect} from 'react';
-import {Route, Redirect} from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Route, Redirect } from 'react-router-dom';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 
 const PrivateRoute = ({component: Component, ...props}) => {
-    const {isAuthenticated, returnAuthenticatedUser, chargingPage} = useContext(AuthContext);
+    const { isAuthenticated, returnAuthenticatedUser, chargingPage } = useContext(AuthContext);
     useEffect(() => {
         returnAuthenticatedUser();
         // eslint-disable-next-line react-hooks/exhaustive-deps
