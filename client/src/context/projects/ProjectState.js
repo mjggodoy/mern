@@ -1,14 +1,14 @@
 import React from 'react';
 import projectContext from './ProjectContext';
 import ProjectReducer from './ProjectReducer';
-import {useReducer} from 'react';
-import {PROJECT_FORM, 
+import { useReducer } from 'react';
+import { PROJECT_FORM, 
         GET_ALLPROJECTS, 
         ADD_PROJECT,
         VALIDATE_FORM,
         CURRENT_PROJECT,
         DELETE_PROJECT,
-        PROJECT_ERROR} from './../../types';
+        PROJECT_ERROR } from './../../types';
 import clientAxios from '../../config/axiosClient';
 
 const ProjectState =  props => {

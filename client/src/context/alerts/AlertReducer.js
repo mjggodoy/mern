@@ -1,4 +1,4 @@
-import {SHOW_ALERT, HIDE_ALERT} from '../../types';
+import { SHOW_ALERT, HIDE_ALERT } from '../../types';
 
 const AlertReducer = (state, action) => {
     switch(action.type) {

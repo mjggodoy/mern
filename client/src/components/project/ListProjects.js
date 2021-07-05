@@ -1,7 +1,7 @@
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import Project from './Project';
 import ProjectContext from '../../context/projects/ProjectContext';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import AlertContext from './../../context/alerts/AlertContext';
 
 const ListProjects = () => {

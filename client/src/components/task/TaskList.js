@@ -1,4 +1,4 @@
-import React, {Fragment, useContext, useEffect} from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import Task from './Task';
 import ProjectContext from '../../context/projects/ProjectContext';
 import TaskContext from '../../context/tasks/TaskContext';
@@ -38,7 +38,7 @@ const TaskList = () => {
                     {tasksByProject.map(task => (
                         <CSSTransition
                             key={task._id}
-                            timeout={200}
+                            timeout={100}
                             className="task"
                         >
                             <Task task = {task} key={task._id}/>
