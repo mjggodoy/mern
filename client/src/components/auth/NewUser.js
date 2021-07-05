@@ -1,5 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AlertContext from './../../context/alerts/AlertContext';
 import AuthContext from '../../context/userAuthentication/AuthContext';
 

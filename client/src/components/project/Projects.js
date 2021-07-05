@@ -1,4 +1,4 @@
-import React , { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import SideBar from './../layout/SideBar';
 import Bar from './../layout/Bar';
 import TaskForm from './../task/TaskForm';
